@@ -21,6 +21,7 @@
 		D884C29319C25E5A00964320 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27519C25E5A00964320 /* UIKit.framework */; };
 		D884C29B19C25E5A00964320 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D884C29919C25E5A00964320 /* InfoPlist.strings */; };
 		D884C29D19C25E5A00964320 /* SudokuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D884C29C19C25E5A00964320 /* SudokuTests.m */; };
+		D8CA563D19C3740D0050147B /* HKSOGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CA563C19C3740D0050147B /* HKSOGridView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		D884C29819C25E5A00964320 /* SudokuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SudokuTests-Info.plist"; sourceTree = "<group>"; };
 		D884C29A19C25E5A00964320 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D884C29C19C25E5A00964320 /* SudokuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SudokuTests.m; sourceTree = "<group>"; };
+		D8CA563B19C3740D0050147B /* HKSOGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSOGridView.h; sourceTree = "<group>"; };
+		D8CA563C19C3740D0050147B /* HKSOGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSOGridView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				D884C28319C25E5A00964320 /* Main.storyboard */,
 				D884C28619C25E5A00964320 /* HKSOViewController.h */,
 				D884C28719C25E5A00964320 /* HKSOViewController.m */,
+				D8CA563B19C3740D0050147B /* HKSOGridView.h */,
+				D8CA563C19C3740D0050147B /* HKSOGridView.m */,
 				D884C28919C25E5A00964320 /* Images.xcassets */,
 				D884C27819C25E5A00964320 /* Supporting Files */,
 			);
@@ -253,6 +258,7 @@
 				D884C27E19C25E5A00964320 /* main.m in Sources */,
 				D884C28219C25E5A00964320 /* HKSOAppDelegate.m in Sources */,
 				D884C28819C25E5A00964320 /* HKSOViewController.m in Sources */,
+				D8CA563D19C3740D0050147B /* HKSOGridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +465,7 @@
 				D884C2A219C25E5A00964320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D884C2A319C25E5A00964320 /* Build configuration list for PBXNativeTarget "SudokuTests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +474,7 @@
 				D884C2A519C25E5A00964320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
