@@ -10,4 +10,6 @@
 
 @interface HKSOGridView : UIView
 
+- (void) setValueAtRow:(int)row column:(int)col to:(int)value;
+
 @end

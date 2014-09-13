@@ -24,6 +24,8 @@
     if (self) {
         // Initialization code
         
+        cells = [[NSMutableArray alloc] init];
+        
         CGFloat x = frame.size.height/24.0;
         CGFloat y = frame.size.height/24.0;
         CGFloat buttonSize = frame.size.height/12.0;
@@ -35,13 +37,17 @@
                 CGRect buttonFrame = CGRectMake (x,y,buttonSize,buttonSize);
                 UIButton* button = [[UIButton alloc] initWithFrame:buttonFrame];
                 button.backgroundColor = [UIColor whiteColor];
-                button.tag = i*10+j; // tag is a 2 digit number, column-row
+                button.tag = j*10+i; // tag is a 2 digit number, column-row
                 
+                UIImage* image = [self imageWithColor:[UIColor yellowColor]];
+                [button setBackgroundImage:image forState:UIControlStateHighlighted];
+                [button setShowsTouchWhenHighlighted:YES];
+                
+                [cells addObject:button];
                 [self addSubview:button];
                 
-                
-                [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlStateHighlighted];
-                
+                [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlStateHighlighted];
+
                 if (j == 9){
                     x = frame.size.height/24.0;
                 }
@@ -65,9 +71,34 @@
     return self;
 }
 
-- (void) buttonPressed:(id)sender
+- (void) setValueAtRow:(int)row column:(int)col to:(int)value
 {
-    NSLog(@"Button %d was pressed", ((UIButton*)sender).tag);
+    UIButton* button = [cells objectAtIndex:9*col+row];
+    
+    if (value != 0) {
+        [button setTitle:[NSString stringWithFormat:@"%d",value] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+    
+}
+
+- (void) cellSelected:(id)sender
+{
+
+}
+
+- (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 

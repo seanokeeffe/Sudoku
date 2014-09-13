@@ -48,9 +48,25 @@ int initialGrid [9][9]={
     // create grid view
     _gridView = [[HKSOGridView alloc] initWithFrame:gridFrame];
     _gridView.backgroundColor = [UIColor blackColor];
+
+    [self initializeGrid];
     [self.view addSubview:_gridView];
     
-   }
+}
+
+- (void) initializeGrid
+{
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0 ; j < 9; ++j)  {
+            [(HKSOGridView*)_gridView setValueAtRow:i column:j to: initialGrid[i][j]];
+        }
+    }
+}
+
+- (void) gridCellSelected:(id)sender
+{
+    NSLog(@"Button %d was pressed", ((UIButton*)sender).tag);
+}
 
 - (void)didReceiveMemoryWarning
 {

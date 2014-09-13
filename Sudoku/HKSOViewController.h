@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HKSOGridView.h"
 
 @interface HKSOViewController : UIViewController
+
+-(void)gridCellSelected;
 
 @end
