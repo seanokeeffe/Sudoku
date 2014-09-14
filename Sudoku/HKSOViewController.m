@@ -51,11 +51,13 @@ int initialGrid [9][9]={
 
     [self initializeGrid];
     [self.view addSubview:_gridView];
+    [(HKSOGridView*)_gridView addTarget:(self) action:@selector(gridCellSelected:)];
     
 }
 
 - (void) initializeGrid
 {
+    
     for (int i = 0; i < 9; ++i) {
         for (int j = 0 ; j < 9; ++j)  {
             [(HKSOGridView*)_gridView setValueAtRow:i column:j to: initialGrid[i][j]];
@@ -63,9 +65,9 @@ int initialGrid [9][9]={
     }
 }
 
-- (void) gridCellSelected:(id)sender
+- (void) gridCellSelected:(id) cell
 {
-    NSLog(@"Button %d was pressed", ((UIButton*)sender).tag);
+    NSLog(@"Button %d was pressed", ((UIButton*)cell).tag);
 }
 
 - (void)didReceiveMemoryWarning

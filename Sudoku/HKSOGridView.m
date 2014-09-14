@@ -11,6 +11,10 @@
 @interface HKSOGridView (){
     NSMutableArray* cells;
     
+    id target;
+    
+    SEL action;
+    
 }
 
 @end
@@ -82,9 +86,15 @@
     
 }
 
+- (void) addTarget: (id) theTarget action:(SEL)theAction
+{
+    target = theTarget;
+    action = theAction;
+}
+
 - (void) cellSelected:(id)sender
 {
-
+    [target performSelector:action withObject:((UIButton*) sender)];
 }
 
 - (UIImage *)imageWithColor:(UIColor *)color {

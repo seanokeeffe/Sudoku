@@ -11,6 +11,6 @@
 
 @interface HKSOViewController : UIViewController
 
--(void)gridCellSelected;
+- (void) gridCellSelected:(id)sender;
 
 @end
