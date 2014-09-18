@@ -10,7 +10,7 @@
 
 @interface HKSOGridView : UIView
 
-- (void) setValueAtRow:(int)row column:(int)col to:(int)value;
+- (void) setValueAtRow:(int)row andColumn:(int)col toValue:(int)value;
 
 - (void) addTarget: (id) theTarget action:(SEL)theAction;
 

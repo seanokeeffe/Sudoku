@@ -23,7 +23,7 @@ int initialGrid [9][9]={
 };
 
 @interface HKSOViewController () {
-    UIView * _gridView;
+    HKSOGridView* _gridView;
 }
 
 @end
@@ -39,9 +39,9 @@ int initialGrid [9][9]={
     
     // create grid frame
     CGRect frame = self.view.frame;
-    CGFloat x = CGRectGetWidth(frame)*.1;
-    CGFloat y = CGRectGetHeight(frame)*.1;
-    CGFloat size = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame))*.80;
+    CGFloat x = CGRectGetWidth(frame) * .1;
+    CGFloat y = CGRectGetHeight(frame) * .1;
+    CGFloat size = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame)) * .80;
     
     CGRect gridFrame = CGRectMake(x, y, size, size);
     
@@ -51,7 +51,7 @@ int initialGrid [9][9]={
 
     [self initializeGrid];
     [self.view addSubview:_gridView];
-    [(HKSOGridView*)_gridView addTarget:(self) action:@selector(gridCellSelected:)];
+    [_gridView addTarget:(self) action:@selector(gridCellSelected:)];
     
 }
 
@@ -60,14 +60,17 @@ int initialGrid [9][9]={
     
     for (int i = 0; i < 9; ++i) {
         for (int j = 0 ; j < 9; ++j)  {
-            [(HKSOGridView*)_gridView setValueAtRow:i column:j to: initialGrid[i][j]];
+            [_gridView setValueAtRow:i andColumn:j toValue: initialGrid[i][j]];
         }
     }
 }
 
-- (void) gridCellSelected:(id) cell
+- (void) gridCellSelected:(id) sender
 {
-    NSLog(@"Button %d was pressed", ((UIButton*)cell).tag);
+    int tag = ((UIButton*)sender).tag;
+    NSLog(@"Button %d was pressed", tag);
+    NSLog(@"at row: %d", tag / 9);
+    NSLog(@"and column: %d", tag % 9);
 }
 
 - (void)didReceiveMemoryWarning

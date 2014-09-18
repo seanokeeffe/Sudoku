@@ -9,7 +9,7 @@
 #import "HKSOGridView.h"
 
 @interface HKSOGridView (){
-    NSMutableArray* cells;
+    NSMutableArray* gridCells;
     
     id target;
     
@@ -28,7 +28,7 @@
     if (self) {
         // Initialization code
         
-        cells = [[NSMutableArray alloc] init];
+        gridCells = [[NSMutableArray alloc] init];
         
         CGFloat x = frame.size.height/24.0;
         CGFloat y = frame.size.height/24.0;
@@ -36,27 +36,29 @@
         CGFloat thickBorder = frame.size.height/24.0;
         CGFloat thinBorder = frame.size.height/72.0;
         
-        for (int i = 1; i < 10; i++){
-            for (int j = 1; j < 10; j++){
+        int buttonTag = 0;
+        for (int i = 0; i < 9; i++){
+            for (int j = 0; j < 9; j++){
+                // create and set up a button
                 CGRect buttonFrame = CGRectMake (x,y,buttonSize,buttonSize);
                 UIButton* button = [[UIButton alloc] initWithFrame:buttonFrame];
                 button.backgroundColor = [UIColor whiteColor];
-                button.tag = j*10+i; // tag is a 2 digit number, column-row
+                button.tag = buttonTag++;
                 
                 UIImage* image = [self imageWithColor:[UIColor yellowColor]];
                 [button setBackgroundImage:image forState:UIControlStateHighlighted];
                 [button setShowsTouchWhenHighlighted:YES];
                 
-                [cells addObject:button];
+                [gridCells addObject:button];
                 [self addSubview:button];
                 
                 [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlStateHighlighted];
-
-                if (j == 9){
-                    x = frame.size.height/24.0;
+                
+                // adjusting for the border widths between columns
+                if (j == 8){
+                    x = frame.size.height / 24.0;
                 }
-
-                else if (j%3 == 0 ){
+                else if ((j + 1) % 3 == 0 ){
                     x = x + buttonSize + thickBorder;
                 }
                 else {
@@ -64,7 +66,8 @@
 
                 }
             }
-            if (i%3 == 0 ){
+            // adjusting for the border widths between rows
+            if ((i + 1) % 3 == 0 ){
                 y = y + buttonSize + thickBorder;
             }
             else {
@@ -75,9 +78,9 @@
     return self;
 }
 
-- (void) setValueAtRow:(int)row column:(int)col to:(int)value
+- (void) setValueAtRow:(int)row andColumn:(int)col toValue:(int)value
 {
-    UIButton* button = [cells objectAtIndex:9*col+row];
+    UIButton* button = [gridCells objectAtIndex:9 * col + row];
     
     if (value != 0) {
         [button setTitle:[NSString stringWithFormat:@"%d",value] forState:UIControlStateNormal];
@@ -86,7 +89,7 @@
     
 }
 
-- (void) addTarget: (id) theTarget action:(SEL)theAction
+- (void) addTarget:(id)theTarget action:(SEL)theAction
 {
     target = theTarget;
     action = theAction;
@@ -97,6 +100,7 @@
     [target performSelector:action withObject:((UIButton*) sender)];
 }
 
+// creates an image of one solid color for the cells highlighted state
 - (UIImage *)imageWithColor:(UIColor *)color {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
@@ -109,8 +113,8 @@
     UIGraphicsEndImageContext();
     
     return image;
+    
 }
-
 
 /*
 // Only override drawRect: if you perform custom drawing.
