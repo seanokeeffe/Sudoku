@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3312F4919CD19FB00D7D865 /* HKSOGridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3312F4819CD19FB00D7D865 /* HKSOGridModel.m */; };
+		A3312F4C19CD1A1100D7D865 /* HKSONumPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3312F4B19CD1A1100D7D865 /* HKSONumPadView.m */; };
 		D884C27219C25E5A00964320 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27119C25E5A00964320 /* Foundation.framework */; };
 		D884C27419C25E5A00964320 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27319C25E5A00964320 /* CoreGraphics.framework */; };
 		D884C27619C25E5A00964320 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27519C25E5A00964320 /* UIKit.framework */; };
@@ -35,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A3312F4719CD19FB00D7D865 /* HKSOGridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSOGridModel.h; path = ../HKSOGridModel.h; sourceTree = "<group>"; };
+		A3312F4819CD19FB00D7D865 /* HKSOGridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKSOGridModel.m; path = ../HKSOGridModel.m; sourceTree = "<group>"; };
+		A3312F4A19CD1A1100D7D865 /* HKSONumPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSONumPadView.h; path = ../HKSONumPadView.h; sourceTree = "<group>"; };
+		A3312F4B19CD1A1100D7D865 /* HKSONumPadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKSONumPadView.m; path = ../HKSONumPadView.m; sourceTree = "<group>"; };
 		D884C26E19C25E5A00964320 /* Sudoku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sudoku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D884C27119C25E5A00964320 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D884C27319C25E5A00964320 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,6 +121,10 @@
 		D884C27719C25E5A00964320 /* Sudoku */ = {
 			isa = PBXGroup;
 			children = (
+				A3312F4719CD19FB00D7D865 /* HKSOGridModel.h */,
+				A3312F4819CD19FB00D7D865 /* HKSOGridModel.m */,
+				A3312F4A19CD1A1100D7D865 /* HKSONumPadView.h */,
+				A3312F4B19CD1A1100D7D865 /* HKSONumPadView.m */,
 				D884C28019C25E5A00964320 /* HKSOAppDelegate.h */,
 				D884C28119C25E5A00964320 /* HKSOAppDelegate.m */,
 				D884C28319C25E5A00964320 /* Main.storyboard */,
@@ -255,9 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3312F4919CD19FB00D7D865 /* HKSOGridModel.m in Sources */,
 				D884C27E19C25E5A00964320 /* main.m in Sources */,
 				D884C28219C25E5A00964320 /* HKSOAppDelegate.m in Sources */,
 				D884C28819C25E5A00964320 /* HKSOViewController.m in Sources */,
+				A3312F4C19CD1A1100D7D865 /* HKSONumPadView.m in Sources */,
 				D8CA563D19C3740D0050147B /* HKSOGridView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
