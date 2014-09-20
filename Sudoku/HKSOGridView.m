@@ -12,11 +12,9 @@
     NSMutableArray* gridCells;
     
     id target;
-    
     SEL action;
     
 }
-
 @end
 
 

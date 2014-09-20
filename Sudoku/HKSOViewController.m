@@ -69,10 +69,17 @@
 
 - (void) gridCellSelected:(id) sender
 {
-    int tag = ((UIButton*)sender).tag;
-    NSLog(@"Button %d was pressed", tag);
-    NSLog(@"at row: %d", tag / 9);
-    NSLog(@"and column: %d", tag % 9);
+    int valueOfHighlightedButton = [_numPadView highlightedButton] + 1;
+    int row = ((UIButton*)sender).tag % 9;
+    int col = ((UIButton*)sender).tag / 9;
+    if ([_gridModel canAddThisValue:valueOfHighlightedButton toRow:row andCol: col]) {
+        [_gridView setValueAtRow:row andColumn:col toValue: valueOfHighlightedButton];
+        [_gridModel updateGridValues:valueOfHighlightedButton atRow:row andCol:col];
+        if ([_gridModel boardCompleted]) {
+            /////////////
+        }
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
