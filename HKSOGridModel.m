@@ -26,6 +26,7 @@ int initialGrid [9][9]={
 {
     NSAssert((row >= 0) && (row <= 8), @"Grid row index out of range");
     NSAssert((col >= 0) && (col <= 8), @"Grid col index out of range");
+    
     return initialGrid[row][col];
 }
 
@@ -35,6 +36,7 @@ int initialGrid [9][9]={
     NSAssert((col >= 0) && (col <= 8), @"Grid col index out of range");
     NSAssert((val >= 1) && (val <= 9), @"Value out of range");
     
+    // Check if the value is consistent for its row, column, and block.
     if ([self checkRowValue:(int)val atRow:(int) row andCol:(int) col] && ([self checkColValue:(int)val atRow:(int) row andCol:(int) col]) && ([self checkBlockValue:(int)val atRow:(int) row andCol:(int) col])) {
         return YES;
     } else {
@@ -66,6 +68,7 @@ int initialGrid [9][9]={
 {
     int blockRow = (row / 3) * 3;
     int blockCol = (col / 3) * 3;
+    
     for (int i = blockRow; i < blockRow + 3; ++i) {
         for (int j = blockCol; j < blockCol + 3; ++j) {
             if (val == initialGrid[i][j]) {
@@ -76,7 +79,9 @@ int initialGrid [9][9]={
     return YES;
 }
 
-- (BOOL) boardCompleted {
+
+- (BOOL) boardCompleted
+{
     for (int i = 0; i < 9; ++i) {
         for (int j = 0; j < 9; ++j) {
             if (initialGrid[i][j] == 0) {return NO;}
@@ -84,6 +89,7 @@ int initialGrid [9][9]={
     }
     return YES;
 }
+
 
 - (void) updateGridValues:(int)newVal atRow:(int) row andCol:(int) col
 {

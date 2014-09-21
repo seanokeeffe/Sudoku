@@ -44,10 +44,11 @@
     // create numPad view
     y = y + size + 100;
     CGRect numPadFrame = CGRectMake(x, y, size, 80);
-    
-    _gridModel = [[HKSOGridModel alloc] init];
     _numPadView = [[HKSONumPadView alloc] initWithFrame:numPadFrame];
     _numPadView.backgroundColor = [UIColor blackColor];
+    
+    // initialize gridModel
+    _gridModel = [[HKSOGridModel alloc] init];
     
     [self initializeGrid];
     [self.view addSubview:_gridView];
@@ -58,7 +59,6 @@
 
 - (void) initializeGrid
 {
-    
     for (int i = 0; i < 9; ++i) {
         for (int j = 0 ; j < 9; ++j)  {
             int value = [_gridModel getValueAtRow:i andColumn:j];
@@ -72,12 +72,15 @@
 
 - (void) gridCellSelected:(id) sender
 {
-    int valueOfHighlightedButton = [_numPadView highlightedButton] + 1;
+    int valueOfHighlightedButton = [_numPadView getHighlightedButton] + 1;
     int row = ((UIButton*)sender).tag / 9;
     int col = ((UIButton*)sender).tag % 9;
+    
+    // If the value is consistent, we then update the cell.
     if ([_gridModel canAddThisValue:valueOfHighlightedButton toRow:row andCol: col]) {
         [_gridView setValueAtRow:row andColumn:col toValue: valueOfHighlightedButton];
         [_gridModel updateGridValues:valueOfHighlightedButton atRow:row andCol:col];
+        // Check if the player completes the game.
         if ([_gridModel boardCompleted]) {
             UIAlertView* winAlert = [[UIAlertView alloc] initWithTitle:@"YOU WON!!" message:@"Congratulations" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
             [winAlert show];

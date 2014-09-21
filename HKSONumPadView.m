@@ -19,18 +19,19 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+    // Initially no cell is highlighted.
     highlightedButton = -1;
     
     self = [super initWithFrame:frame];
     cells = [[NSMutableArray alloc] init];
     
     if (self) {
-        // Initialization code
         
-        CGFloat x = frame.size.width/24.0;
-        CGFloat y = frame.size.height/6.0;
-        CGFloat buttonSize = frame.size.width/12.0;
-        CGFloat border = frame.size.width/45.0;
+        // Initialization code
+        CGFloat x = frame.size.width / 24.0;
+        CGFloat y = frame.size.height / 6.0;
+        CGFloat buttonSize = frame.size.width / 12.0;
+        CGFloat border = frame.size.width / 45.0;
         
         for (int i = 0; i < 9; ++i) {
             
@@ -58,14 +59,16 @@
 - (void) cellSelected:(id)sender
 {
     if (highlightedButton >= 0) {
+        // If there is an already highlighted cell, change its background color back to white.
         [[cells objectAtIndex:highlightedButton] setBackgroundColor:[UIColor whiteColor]];
     }
     ((UIButton*) sender).backgroundColor = [UIColor yellowColor];
+    // update the current highlighted cell
     highlightedButton = ((UIButton*)sender).tag;
     
 }
 
-- (int) highlightedButton
+- (int) getHighlightedButton
 {
     return highlightedButton;
 }

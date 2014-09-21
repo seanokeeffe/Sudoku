@@ -24,8 +24,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         
+        // Initialization code
         gridCells = [[NSMutableArray alloc] init];
         
         CGFloat x = frame.size.height/24.0;
@@ -76,6 +76,7 @@
     return self;
 }
 
+// set cell to user-entered values
 - (void) setValueAtRow:(int)row andColumn:(int)col toValue:(int)value
 {
     UIButton* button = [gridCells objectAtIndex:9 * row + col];
@@ -87,6 +88,8 @@
     
 }
 
+// differentiate initial grid cells with a different size and font
+// also removes the target so that the user cannot change its value
 -(void)setToInitialAtRow:(int)row andColumn:(int)col
 {
     UIButton* button = [gridCells objectAtIndex:9 * row + col];

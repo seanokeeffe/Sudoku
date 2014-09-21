@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface HKSONumPadView : UIView
-- (int) highlightedButton;
+
+- (int) getHighlightedButton;
+
 @end
