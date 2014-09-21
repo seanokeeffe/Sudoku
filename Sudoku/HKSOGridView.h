@@ -14,4 +14,6 @@
 
 - (void) addTarget: (id) theTarget action:(SEL)theAction;
 
+-(void)setToInitialAtRow:(int)row andColumn:(int)col;
+
 @end

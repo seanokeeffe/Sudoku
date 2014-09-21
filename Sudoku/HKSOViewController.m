@@ -63,6 +63,9 @@
         for (int j = 0 ; j < 9; ++j)  {
             int value = [_gridModel getValueAtRow:i andColumn:j];
             [_gridView setValueAtRow:i andColumn:j toValue: value];
+            if (value != 0) {
+                [_gridView setToInitialAtRow:i andColumn:j];
+            }
         }
     }
 }

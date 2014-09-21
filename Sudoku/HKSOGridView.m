@@ -87,6 +87,14 @@
     
 }
 
+-(void)setToInitialAtRow:(int)row andColumn:(int)col
+{
+    UIButton* button = [gridCells objectAtIndex:9 * col + row];
+    [button removeTarget:self action:@selector(cellSelected:) forControlEvents:UIControlStateHighlighted];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+}
+
 - (void) addTarget:(id)theTarget action:(SEL)theAction
 {
     target = theTarget;
