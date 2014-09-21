@@ -3,7 +3,7 @@
 //  Sudoku
 //
 //  Created by HMC on 9/11/14.
-//  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
+//  Copyright (c) 2014 Yaxi Gao Sean Okeeffe. All rights reserved.
 //
 
 #import "HKSOAppDelegate.h"

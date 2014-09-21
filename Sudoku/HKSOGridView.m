@@ -3,7 +3,7 @@
 //  Sudoku
 //
 //  Created by HMC on 9/12/14.
-//  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
+//  Copyright (c) 2014 Yaxi Gao Sean Okeeffe. All rights reserved.
 //
 
 #import "HKSOGridView.h"
@@ -12,11 +12,9 @@
     NSMutableArray* gridCells;
     
     id target;
-    
     SEL action;
     
 }
-
 @end
 
 
@@ -26,8 +24,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         
+        // Initialization code
         gridCells = [[NSMutableArray alloc] init];
         
         CGFloat x = frame.size.height/24.0;
@@ -52,7 +50,7 @@
                 [gridCells addObject:button];
                 [self addSubview:button];
                 
-                [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlStateHighlighted];
+                [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlEventTouchUpInside];
                 
                 // adjusting for the border widths between columns
                 if (j == 8){
@@ -78,15 +76,26 @@
     return self;
 }
 
+// set cell to user-entered values
 - (void) setValueAtRow:(int)row andColumn:(int)col toValue:(int)value
 {
-    UIButton* button = [gridCells objectAtIndex:9 * col + row];
+    UIButton* button = [gridCells objectAtIndex:9 * row + col];
     
     if (value != 0) {
         [button setTitle:[NSString stringWithFormat:@"%d",value] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     }
     
+}
+
+// differentiate initial grid cells with a different size and font
+// also removes the target so that the user cannot change its value
+-(void)setToInitialAtRow:(int)row andColumn:(int)col
+{
+    UIButton* button = [gridCells objectAtIndex:9 * row + col];
+    [button removeTarget:self action:@selector(cellSelected:) forControlEvents:UIControlEventAllTouchEvents];
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:20];
+    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
 }
 
 - (void) addTarget:(id)theTarget action:(SEL)theAction

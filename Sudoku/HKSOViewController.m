@@ -3,27 +3,19 @@
 //  Sudoku
 //
 //  Created by HMC on 9/11/14.
-//  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
+//  Copyright (c) 2014 Yaxi Gao Sean Okeeffe. All rights reserved.
 //
 
 #import "HKSOViewController.h"
 #import "HKSOGridView.h"
+#import "HKSONumPadView.h"
+#import "HKSOGridModel.h"
 
-
-int initialGrid [9][9]={
-    {7,0,0,4,2,0,0,0,9},
-    {0,0,9,5,0,0,0,0,4},
-    {0,2,0,6,9,0,5,0,0},
-    {6,5,0,0,0,0,4,3,0},
-    {0,8,0,0,0,6,0,0,7},
-    {0,1,0,0,4,5,6,0,0},
-    {0,0,0,8,6,0,0,0,2},
-    {3,4,0,9,0,0,1,0,0},
-    {8,0,0,3,0,2,7,4,0}
-};
 
 @interface HKSOViewController () {
     HKSOGridView* _gridView;
+    HKSOGridModel* _gridModel;
+    HKSONumPadView* _numPadView;
 }
 
 @end
@@ -49,28 +41,52 @@ int initialGrid [9][9]={
     _gridView = [[HKSOGridView alloc] initWithFrame:gridFrame];
     _gridView.backgroundColor = [UIColor blackColor];
 
+    // create numPad view
+    y = y + size + 100;
+    CGRect numPadFrame = CGRectMake(x, y, size, 80);
+    _numPadView = [[HKSONumPadView alloc] initWithFrame:numPadFrame];
+    _numPadView.backgroundColor = [UIColor blackColor];
+    
+    // initialize gridModel
+    _gridModel = [[HKSOGridModel alloc] init];
+    
     [self initializeGrid];
     [self.view addSubview:_gridView];
+    [self.view addSubview:_numPadView];
     [_gridView addTarget:(self) action:@selector(gridCellSelected:)];
     
 }
 
 - (void) initializeGrid
 {
-    
     for (int i = 0; i < 9; ++i) {
         for (int j = 0 ; j < 9; ++j)  {
-            [_gridView setValueAtRow:i andColumn:j toValue: initialGrid[i][j]];
+            int value = [_gridModel getValueAtRow:i andColumn:j];
+            [_gridView setValueAtRow:i andColumn:j toValue: value];
+            if (value != 0) {
+                [_gridView setToInitialAtRow:i andColumn:j];
+            }
         }
     }
 }
 
 - (void) gridCellSelected:(id) sender
 {
-    int tag = ((UIButton*)sender).tag;
-    NSLog(@"Button %d was pressed", tag);
-    NSLog(@"at row: %d", tag / 9);
-    NSLog(@"and column: %d", tag % 9);
+    int valueOfHighlightedButton = [_numPadView getHighlightedButton] + 1;
+    int row = ((UIButton*)sender).tag / 9;
+    int col = ((UIButton*)sender).tag % 9;
+    
+    // If the value is consistent, we then update the cell.
+    if ([_gridModel canAddThisValue:valueOfHighlightedButton toRow:row andCol: col]) {
+        [_gridView setValueAtRow:row andColumn:col toValue: valueOfHighlightedButton];
+        [_gridModel updateGridValues:valueOfHighlightedButton atRow:row andCol:col];
+        // Check if the player completes the game.
+        if ([_gridModel boardCompleted]) {
+            UIAlertView* winAlert = [[UIAlertView alloc] initWithTitle:@"YOU WON!!" message:@"Congratulations" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+            [winAlert show];
+        }
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
