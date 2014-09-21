@@ -3,7 +3,7 @@
 //  Sudoku
 //
 //  Created by Yaxi Gao on 9/19/14.
-//  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
+//  Copyright (c) 2014 Yaxi Gao Sean Okeeffe. All rights reserved.
 //
 
 #import "HKSONumPadView.h"
@@ -20,9 +20,10 @@
 - (id)initWithFrame:(CGRect)frame
 {
     highlightedButton = -1;
-    cells = [[NSMutableArray alloc] init];
     
     self = [super initWithFrame:frame];
+    cells = [[NSMutableArray alloc] init];
+    
     if (self) {
         // Initialization code
         

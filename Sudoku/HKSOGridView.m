@@ -3,7 +3,7 @@
 //  Sudoku
 //
 //  Created by HMC on 9/12/14.
-//  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
+//  Copyright (c) 2014 Yaxi Gao Sean Okeeffe. All rights reserved.
 //
 
 #import "HKSOGridView.h"
@@ -78,7 +78,7 @@
 
 - (void) setValueAtRow:(int)row andColumn:(int)col toValue:(int)value
 {
-    UIButton* button = [gridCells objectAtIndex:9 * col + row];
+    UIButton* button = [gridCells objectAtIndex:9 * row + col];
     
     if (value != 0) {
         [button setTitle:[NSString stringWithFormat:@"%d",value] forState:UIControlStateNormal];
@@ -89,7 +89,7 @@
 
 -(void)setToInitialAtRow:(int)row andColumn:(int)col
 {
-    UIButton* button = [gridCells objectAtIndex:9 * col + row];
+    UIButton* button = [gridCells objectAtIndex:9 * row + col];
     [button removeTarget:self action:@selector(cellSelected:) forControlEvents:UIControlStateHighlighted];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:20];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];

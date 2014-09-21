@@ -3,33 +3,38 @@
 //  Sudoku
 //
 //  Created by Yaxi Gao on 9/19/14.
-//  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
+//  Copyright (c) 2014 Yaxi Gao Sean Okeeffe. All rights reserved.
 //
 
 #import "HKSOGridModel.h"
 
-
 int initialGrid [9][9]={
-    {7,0,0,4,2,0,0,0,9},
-    {0,0,9,5,0,0,0,0,4},
-    {0,2,0,6,9,0,5,0,0},
-    {6,5,0,0,0,0,4,3,0},
-    {0,8,0,0,0,6,0,0,7},
-    {0,1,0,0,4,5,6,0,0},
-    {0,0,0,8,6,0,0,0,2},
-    {3,4,0,9,0,0,1,0,0},
-    {8,0,0,3,0,2,7,4,0}
+    {7,0,0,6,0,0,0,3,8},
+    {0,0,2,5,8,1,0,4,0},
+    {0,9,0,0,0,0,0,0,0},
+    {4,5,6,0,0,0,8,9,3},
+    {2,0,9,0,0,4,6,0,0},
+    {0,0,0,0,6,5,0,0,2},
+    {0,0,5,4,0,6,0,1,7},
+    {0,0,0,3,0,0,0,0,4},
+    {9,4,0,0,7,0,2,0,0},
 };
 
 @implementation HKSOGridModel
 
 - (int) getValueAtRow:(int) row andColumn:(int)col
 {
+    NSAssert((row >= 0) && (row <= 8), @"Grid row index out of range");
+    NSAssert((col >= 0) && (col <= 8), @"Grid col index out of range");
     return initialGrid[row][col];
 }
 
 - (BOOL) canAddThisValue:(int) val toRow:(int) row andCol:(int) col
 {
+    NSAssert((row >= 0) && (row <= 8), @"Grid row index out of range");
+    NSAssert((col >= 0) && (col <= 8), @"Grid col index out of range");
+    NSAssert((val >= 1) && (val <= 9), @"Value out of range");
+    
     if ([self checkRowValue:(int)val atRow:(int) row andCol:(int) col] && ([self checkColValue:(int)val atRow:(int) row andCol:(int) col]) && ([self checkBlockValue:(int)val atRow:(int) row andCol:(int) col])) {
         return YES;
     } else {
@@ -82,6 +87,10 @@ int initialGrid [9][9]={
 
 - (void) updateGridValues:(int)newVal atRow:(int) row andCol:(int) col
 {
+    NSAssert((row >= 0) && (row <= 8), @"Grid row index out of range");
+    NSAssert((col >= 0) && (col <= 8), @"Grid col index out of range");
+    NSAssert((newVal >= 1) && (newVal <= 9), @"Value out of range");
+    
     initialGrid[row][col] = newVal;
 }
 

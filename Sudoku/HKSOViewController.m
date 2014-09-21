@@ -3,7 +3,7 @@
 //  Sudoku
 //
 //  Created by HMC on 9/11/14.
-//  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
+//  Copyright (c) 2014 Yaxi Gao Sean Okeeffe. All rights reserved.
 //
 
 #import "HKSOViewController.h"
@@ -73,8 +73,8 @@
 - (void) gridCellSelected:(id) sender
 {
     int valueOfHighlightedButton = [_numPadView highlightedButton] + 1;
-    int row = ((UIButton*)sender).tag % 9;
-    int col = ((UIButton*)sender).tag / 9;
+    int row = ((UIButton*)sender).tag / 9;
+    int col = ((UIButton*)sender).tag % 9;
     if ([_gridModel canAddThisValue:valueOfHighlightedButton toRow:row andCol: col]) {
         [_gridView setValueAtRow:row andColumn:col toValue: valueOfHighlightedButton];
         [_gridModel updateGridValues:valueOfHighlightedButton atRow:row andCol:col];
