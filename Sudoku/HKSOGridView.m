@@ -50,7 +50,7 @@
                 [gridCells addObject:button];
                 [self addSubview:button];
                 
-                [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlStateHighlighted];
+                [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlEventTouchUpInside];
                 
                 // adjusting for the border widths between columns
                 if (j == 8){
@@ -90,7 +90,7 @@
 -(void)setToInitialAtRow:(int)row andColumn:(int)col
 {
     UIButton* button = [gridCells objectAtIndex:9 * row + col];
-    [button removeTarget:self action:@selector(cellSelected:) forControlEvents:UIControlStateHighlighted];
+    [button removeTarget:self action:@selector(cellSelected:) forControlEvents:UIControlEventAllTouchEvents];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:20];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
 }

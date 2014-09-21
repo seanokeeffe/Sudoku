@@ -44,7 +44,7 @@
             [button setTitle:[NSString stringWithFormat:@"%d", i + 1] forState:UIControlStateNormal];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             
-            [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlStateHighlighted];
+            [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlEventTouchUpInside];
             
             [cells addObject:button];
             [self addSubview:button];
