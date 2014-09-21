@@ -7,8 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "HKSOGridModel.h"
 
-@interface SudokuTests : XCTestCase
+@interface SudokuTests : XCTestCase {
+    HKSOGridModel* _gridModel;
+}
 
 @end
 
@@ -18,6 +21,7 @@
 {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    _gridModel = [[HKSOGridModel alloc] init];
 }
 
 - (void)tearDown

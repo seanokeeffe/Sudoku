@@ -79,7 +79,8 @@
         [_gridView setValueAtRow:row andColumn:col toValue: valueOfHighlightedButton];
         [_gridModel updateGridValues:valueOfHighlightedButton atRow:row andCol:col];
         if ([_gridModel boardCompleted]) {
-            /////////////
+            UIAlertView* winAlert = [[UIAlertView alloc] initWithTitle:@"YOU WON!!" message:@"Congratulations" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+            [winAlert show];
         }
     }
     
