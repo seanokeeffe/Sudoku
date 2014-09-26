@@ -84,6 +84,8 @@
     if (value != 0) {
         [button setTitle:[NSString stringWithFormat:@"%d",value] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    } else {
+        [button setTitle:[NSString stringWithFormat:@" "] forState:UIControlStateNormal];
     }
     
 }

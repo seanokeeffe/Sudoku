@@ -16,6 +16,8 @@
     HKSOGridView* _gridView;
     HKSOGridModel* _gridModel;
     HKSONumPadView* _numPadView;
+    UIButton* _restart;
+    UIButton* _newGame;
 }
 
 @end
@@ -50,10 +52,29 @@
     // initialize gridModel
     _gridModel = [[HKSOGridModel alloc] init];
     
+    // initialize restart button
+    CGRect restartFrame = CGRectMake(x, y + 120, 100, 70);
+    _restart = [[UIButton alloc] initWithFrame:restartFrame];
+    [_restart setTitle:[NSString stringWithFormat:@"Restart"] forState: UIControlStateNormal];
+    [_restart setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [[_restart layer] setBorderWidth:2.0f];
+    [[_restart layer] setBorderColor:[UIColor blackColor].CGColor];
+    
+    // initialize new game button
+    CGRect newGameFrame = CGRectMake(x + 250, y + 120, 100, 70);
+    _newGame = [[UIButton alloc] initWithFrame:newGameFrame];
+    [_newGame setTitle:[NSString stringWithFormat:@"New Game"] forState: UIControlStateNormal];
+    [_newGame setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [[_newGame layer] setBorderWidth:2.0f];
+    [[_newGame layer] setBorderColor:[UIColor blackColor].CGColor];
+    
+    [self.view addSubview:_newGame];
+    [self.view addSubview:_restart];
     [self initializeGrid];
     [self.view addSubview:_gridView];
     [self.view addSubview:_numPadView];
     [_gridView addTarget:(self) action:@selector(gridCellSelected:)];
+    //[_restart addTarget:(self) action:@selector(restartButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -69,6 +90,14 @@
         }
     }
 }
+
+- (void) restartButtonPressed:(id) sender
+{
+    [_gridModel resetGridValues];
+    NSLog(@"I'm here!");
+    [self initializeGrid];
+}
+
 
 - (void) gridCellSelected:(id) sender
 {
