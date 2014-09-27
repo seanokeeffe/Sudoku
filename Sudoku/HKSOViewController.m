@@ -64,15 +64,16 @@
     _gridModel = [[HKSOGridModel alloc] init];
     
     // initialize restart button
-    CGRect restartFrame = CGRectMake(x + 80, y + 120, 100, 70);
+    CGRect restartFrame = CGRectMake(x + 80, y + 120, 100, 50);
     _restart = [[UIButton alloc] initWithFrame:restartFrame];
     [_restart setTitle:[NSString stringWithFormat:@"Restart"] forState: UIControlStateNormal];
     [_restart setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [[_restart layer] setBorderWidth:2.0f];
     [[_restart layer] setBorderColor:[UIColor blackColor].CGColor];
+
     
     // initialize new game button
-    CGRect newGameFrame = CGRectMake(x + 450, y + 120, 100, 70);
+    CGRect newGameFrame = CGRectMake(x + 450, y + 120, 100, 50);
     _newGame = [[UIButton alloc] initWithFrame:newGameFrame];
     [_newGame setTitle:[NSString stringWithFormat:@"New Game"] forState: UIControlStateNormal];
     [_newGame setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
