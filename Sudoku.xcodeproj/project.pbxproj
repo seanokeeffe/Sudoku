@@ -21,6 +21,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		A30DD86119D75E490076B0A2 /* HKSOGridGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */; };
+		A30DD86419D75EE30076B0A2 /* grid1.txt in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86219D75EE30076B0A2 /* grid1.txt */; };
+		A30DD86519D75EE30076B0A2 /* grid2.txt in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86319D75EE30076B0A2 /* grid2.txt */; };
 		A3312F4919CD19FB00D7D865 /* HKSOGridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3312F4819CD19FB00D7D865 /* HKSOGridModel.m */; };
 		A3312F4C19CD1A1100D7D865 /* HKSONumPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3312F4B19CD1A1100D7D865 /* HKSONumPadView.m */; };
 		D884C27219C25E5A00964320 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27119C25E5A00964320 /* Foundation.framework */; };
@@ -51,6 +54,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A30DD85F19D75E490076B0A2 /* HKSOGridGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSOGridGenerator.h; sourceTree = "<group>"; };
+		A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSOGridGenerator.m; sourceTree = "<group>"; };
+		A30DD86219D75EE30076B0A2 /* grid1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid1.txt; sourceTree = "<group>"; };
+		A30DD86319D75EE30076B0A2 /* grid2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid2.txt; sourceTree = "<group>"; };
 		A3312F4719CD19FB00D7D865 /* HKSOGridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSOGridModel.h; path = ../HKSOGridModel.h; sourceTree = "<group>"; };
 		A3312F4819CD19FB00D7D865 /* HKSOGridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKSOGridModel.m; path = ../HKSOGridModel.m; sourceTree = "<group>"; };
 		A3312F4A19CD1A1100D7D865 /* HKSONumPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSONumPadView.h; path = ../HKSONumPadView.h; sourceTree = "<group>"; };
@@ -144,6 +151,10 @@
 				D884C28319C25E5A00964320 /* Main.storyboard */,
 				D884C28619C25E5A00964320 /* HKSOViewController.h */,
 				D884C28719C25E5A00964320 /* HKSOViewController.m */,
+				A30DD85F19D75E490076B0A2 /* HKSOGridGenerator.h */,
+				A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */,
+				A30DD86219D75EE30076B0A2 /* grid1.txt */,
+				A30DD86319D75EE30076B0A2 /* grid2.txt */,
 				D8CA563B19C3740D0050147B /* HKSOGridView.h */,
 				D8CA563C19C3740D0050147B /* HKSOGridView.m */,
 				D884C28919C25E5A00964320 /* Images.xcassets */,
@@ -261,7 +272,9 @@
 			files = (
 				D884C28A19C25E5A00964320 /* Images.xcassets in Resources */,
 				D884C27C19C25E5A00964320 /* InfoPlist.strings in Resources */,
+				A30DD86419D75EE30076B0A2 /* grid1.txt in Resources */,
 				D884C28519C25E5A00964320 /* Main.storyboard in Resources */,
+				A30DD86519D75EE30076B0A2 /* grid2.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +311,7 @@
 			files = (
 				A3312F4919CD19FB00D7D865 /* HKSOGridModel.m in Sources */,
 				D884C27E19C25E5A00964320 /* main.m in Sources */,
+				A30DD86119D75E490076B0A2 /* HKSOGridGenerator.m in Sources */,
 				D884C28219C25E5A00964320 /* HKSOAppDelegate.m in Sources */,
 				D884C28819C25E5A00964320 /* HKSOViewController.m in Sources */,
 				A3312F4C19CD1A1100D7D865 /* HKSONumPadView.m in Sources */,
@@ -513,6 +527,7 @@
 				A302554A19CF85FA000F7C38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D884C26919C25E5A00964320 /* Build configuration list for PBXProject "Sudoku" */ = {
 			isa = XCConfigurationList;

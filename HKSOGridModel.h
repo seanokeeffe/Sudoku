@@ -15,5 +15,6 @@
 - (void) updateGridValues:(int)newVal atRow:(int) row andCol:(int) col;
 - (BOOL) boardCompleted;
 - (void) resetGridValues;
+- (void) startNewGame;
 
 @end

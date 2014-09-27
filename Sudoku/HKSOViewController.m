@@ -12,6 +12,7 @@
 #import "HKSOGridModel.h"
 
 
+
 @interface HKSOViewController () {
     HKSOGridView* _gridView;
     HKSOGridModel* _gridModel;
@@ -74,7 +75,8 @@
     [self.view addSubview:_gridView];
     [self.view addSubview:_numPadView];
     [_gridView addTarget:(self) action:@selector(gridCellSelected:)];
-    //[_restart addTarget:(self) action:@selector(restartButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_restart addTarget:(self) action:@selector(restartButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_newGame addTarget:(self) action:@selector(newGameButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -94,7 +96,12 @@
 - (void) restartButtonPressed:(id) sender
 {
     [_gridModel resetGridValues];
-    NSLog(@"I'm here!");
+    [self initializeGrid];
+}
+
+- (void) newGameButtonPressed:(id) sender
+{
+    [_gridModel startNewGame];
     [self initializeGrid];
 }
 

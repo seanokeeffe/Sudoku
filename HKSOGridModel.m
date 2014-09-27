@@ -7,32 +7,43 @@
 //
 
 #import "HKSOGridModel.h"
+#import "HKSOGridGenerator.h"
 
-int currentGrid [9][9]={
-    {7,0,0,6,0,0,0,3,8},
-    {0,0,2,5,8,1,0,4,0},
-    {0,9,0,0,0,0,0,0,0},
-    {4,5,6,0,0,0,8,9,3},
-    {2,0,9,0,0,4,6,0,0},
-    {0,0,0,0,6,5,0,0,2},
-    {0,0,5,4,0,6,0,1,7},
-    {0,0,0,3,0,0,0,0,4},
-    {9,4,0,0,7,0,2,0,0},
-};
+@interface HKSOGridModel() {
+    HKSOGridGenerator* _gridGenerator;
+    NSString* _gridValues;
+}
+@end
+int currentGrid [9][9];
 
-int initialGrid[9][9] = {
-    {7,0,0,6,0,0,0,3,8},
-    {0,0,2,5,8,1,0,4,0},
-    {0,9,0,0,0,0,0,0,0},
-    {4,5,6,0,0,0,8,9,3},
-    {2,0,9,0,0,4,6,0,0},
-    {0,0,0,0,6,5,0,0,2},
-    {0,0,5,4,0,6,0,1,7},
-    {0,0,0,3,0,0,0,0,4},
-    {9,4,0,0,7,0,2,0,0},
-};
 
 @implementation HKSOGridModel
+
+- (id) init
+{
+    self = [super init];
+
+    if (self) {
+        _gridGenerator = [[HKSOGridGenerator alloc] init];
+        [self startNewGame];
+    }
+    
+    return self;
+}
+
+- (void) parseGridValues
+{
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 9; ++j) {
+            int index = i * 9 + j;
+            if ([_gridValues characterAtIndex:index] == '.') {
+                currentGrid[i][j] = 0;
+            } else {
+                currentGrid[i][j] = (int)[_gridValues characterAtIndex:index] - 48;
+            }
+        }
+    }
+}
 
 - (int) getValueAtRow:(int) row andColumn:(int)col
 {
@@ -91,7 +102,6 @@ int initialGrid[9][9] = {
     return YES;
 }
 
-
 - (BOOL) boardCompleted
 {
     for (int i = 0; i < 9; ++i) {
@@ -114,11 +124,13 @@ int initialGrid[9][9] = {
 
 - (void) resetGridValues
 {
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            currentGrid[i][j] = initialGrid[i][j];
-        }
-    }
+    [self parseGridValues];
+}
+
+- (void) startNewGame
+{
+    _gridValues = [_gridGenerator getRandomGridValues];
+    [self parseGridValues];
 }
 
 @end
