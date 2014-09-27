@@ -10,7 +10,8 @@
 #import "HKSOGridView.h"
 #import "HKSONumPadView.h"
 #import "HKSOGridModel.h"
-
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 
 @interface HKSOViewController () {
@@ -19,6 +20,8 @@
     HKSONumPadView* _numPadView;
     UIButton* _restart;
     UIButton* _newGame;
+    AVAudioPlayer* _audioPlayerGridPressed;
+    AVAudioPlayer* _audioPlayerWrongGridPressed;
 }
 
 @end
@@ -27,8 +30,15 @@
 
 - (void)viewDidLoad
 {
+  
+    
+    NSURL *SoundURLGridPressed = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"button-11" ofType:@"wav"]];
+    _audioPlayerGridPressed = [[AVAudioPlayer alloc] initWithContentsOfURL:SoundURLGridPressed error:nil];
+    
+    NSURL *SoundURLWrongGridPressed = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"button-18" ofType:@"wav"]];
+    _audioPlayerWrongGridPressed = [[AVAudioPlayer alloc] initWithContentsOfURL:SoundURLWrongGridPressed error:nil];
+    
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -54,7 +64,7 @@
     _gridModel = [[HKSOGridModel alloc] init];
     
     // initialize restart button
-    CGRect restartFrame = CGRectMake(x, y + 120, 100, 70);
+    CGRect restartFrame = CGRectMake(x + 80, y + 120, 100, 70);
     _restart = [[UIButton alloc] initWithFrame:restartFrame];
     [_restart setTitle:[NSString stringWithFormat:@"Restart"] forState: UIControlStateNormal];
     [_restart setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -62,7 +72,7 @@
     [[_restart layer] setBorderColor:[UIColor blackColor].CGColor];
     
     // initialize new game button
-    CGRect newGameFrame = CGRectMake(x + 250, y + 120, 100, 70);
+    CGRect newGameFrame = CGRectMake(x + 450, y + 120, 100, 70);
     _newGame = [[UIButton alloc] initWithFrame:newGameFrame];
     [_newGame setTitle:[NSString stringWithFormat:@"New Game"] forState: UIControlStateNormal];
     [_newGame setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -108,12 +118,23 @@
 
 - (void) gridCellSelected:(id) sender
 {
+    
+    
+    
     int valueOfHighlightedButton = [_numPadView getHighlightedButton] + 1;
+    if (valueOfHighlightedButton == 0) {
+        return;
+    }
+    
     int row = ((UIButton*)sender).tag / 9;
     int col = ((UIButton*)sender).tag % 9;
     
     // If the value is consistent, we then update the cell.
     if ([_gridModel canAddThisValue:valueOfHighlightedButton toRow:row andCol: col]) {
+        
+        [_audioPlayerGridPressed prepareToPlay];
+        [_audioPlayerGridPressed play];
+        
         [_gridView setValueAtRow:row andColumn:col toValue: valueOfHighlightedButton];
         [_gridModel updateGridValues:valueOfHighlightedButton atRow:row andCol:col];
         // Check if the player completes the game.
@@ -121,6 +142,9 @@
             UIAlertView* winAlert = [[UIAlertView alloc] initWithTitle:@"YOU WON!!" message:@"Congratulations" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
             [winAlert show];
         }
+    } else {
+        [_audioPlayerWrongGridPressed prepareToPlay];
+        [_audioPlayerWrongGridPressed play];
     }
     
 }

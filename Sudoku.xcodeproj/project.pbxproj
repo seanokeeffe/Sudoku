@@ -24,6 +24,10 @@
 		A30DD86119D75E490076B0A2 /* HKSOGridGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */; };
 		A30DD86419D75EE30076B0A2 /* grid1.txt in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86219D75EE30076B0A2 /* grid1.txt */; };
 		A30DD86519D75EE30076B0A2 /* grid2.txt in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86319D75EE30076B0A2 /* grid2.txt */; };
+		A30DD86719D771BA0076B0A2 /* button-11.wav in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86619D771BA0076B0A2 /* button-11.wav */; };
+		A30DD86919D772140076B0A2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30DD86819D772140076B0A2 /* AudioToolbox.framework */; };
+		A30DD86B19D777620076B0A2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30DD86A19D777620076B0A2 /* AVFoundation.framework */; };
+		A30DD86D19D7784E0076B0A2 /* button-18.wav in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86C19D7784E0076B0A2 /* button-18.wav */; };
 		A3312F4919CD19FB00D7D865 /* HKSOGridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3312F4819CD19FB00D7D865 /* HKSOGridModel.m */; };
 		A3312F4C19CD1A1100D7D865 /* HKSONumPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3312F4B19CD1A1100D7D865 /* HKSONumPadView.m */; };
 		D884C27219C25E5A00964320 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27119C25E5A00964320 /* Foundation.framework */; };
@@ -58,6 +62,10 @@
 		A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSOGridGenerator.m; sourceTree = "<group>"; };
 		A30DD86219D75EE30076B0A2 /* grid1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid1.txt; sourceTree = "<group>"; };
 		A30DD86319D75EE30076B0A2 /* grid2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid2.txt; sourceTree = "<group>"; };
+		A30DD86619D771BA0076B0A2 /* button-11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-11.wav"; sourceTree = "<group>"; };
+		A30DD86819D772140076B0A2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A30DD86A19D777620076B0A2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A30DD86C19D7784E0076B0A2 /* button-18.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-18.wav"; sourceTree = "<group>"; };
 		A3312F4719CD19FB00D7D865 /* HKSOGridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSOGridModel.h; path = ../HKSOGridModel.h; sourceTree = "<group>"; };
 		A3312F4819CD19FB00D7D865 /* HKSOGridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKSOGridModel.m; path = ../HKSOGridModel.m; sourceTree = "<group>"; };
 		A3312F4A19CD1A1100D7D865 /* HKSONumPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSONumPadView.h; path = ../HKSONumPadView.h; sourceTree = "<group>"; };
@@ -90,6 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A30DD86B19D777620076B0A2 /* AVFoundation.framework in Frameworks */,
+				A30DD86919D772140076B0A2 /* AudioToolbox.framework in Frameworks */,
 				D884C27419C25E5A00964320 /* CoreGraphics.framework in Frameworks */,
 				D884C27619C25E5A00964320 /* UIKit.framework in Frameworks */,
 				D884C27219C25E5A00964320 /* Foundation.framework in Frameworks */,
@@ -131,6 +141,8 @@
 		D884C27019C25E5A00964320 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A30DD86A19D777620076B0A2 /* AVFoundation.framework */,
+				A30DD86819D772140076B0A2 /* AudioToolbox.framework */,
 				D884C27119C25E5A00964320 /* Foundation.framework */,
 				D884C27319C25E5A00964320 /* CoreGraphics.framework */,
 				D884C27519C25E5A00964320 /* UIKit.framework */,
@@ -166,6 +178,8 @@
 		D884C27819C25E5A00964320 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A30DD86C19D7784E0076B0A2 /* button-18.wav */,
+				A30DD86619D771BA0076B0A2 /* button-11.wav */,
 				D884C27919C25E5A00964320 /* Sudoku-Info.plist */,
 				D884C27A19C25E5A00964320 /* InfoPlist.strings */,
 				D884C27D19C25E5A00964320 /* main.m */,
@@ -274,7 +288,9 @@
 				D884C27C19C25E5A00964320 /* InfoPlist.strings in Resources */,
 				A30DD86419D75EE30076B0A2 /* grid1.txt in Resources */,
 				D884C28519C25E5A00964320 /* Main.storyboard in Resources */,
+				A30DD86719D771BA0076B0A2 /* button-11.wav in Resources */,
 				A30DD86519D75EE30076B0A2 /* grid2.txt in Resources */,
+				A30DD86D19D7784E0076B0A2 /* button-18.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
