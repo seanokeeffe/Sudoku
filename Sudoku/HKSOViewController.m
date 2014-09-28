@@ -11,6 +11,7 @@
 #import "HKSONumPadView.h"
 #import "HKSOGridModel.h"
 #import "HKSOAboutViewController.h"
+#import "HKSOWinViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
@@ -35,7 +36,10 @@
 {
   
     [super viewDidLoad];
-
+    /*HKSOWinViewController* test = [[HKSOViewController alloc] init];
+    [self.navigationController presentViewController:test animated:YES completion:nil];*/
+    
+    
     // Initialize misc
     self.view.backgroundColor = [UIColor whiteColor];
     CGRect frame = self.view.frame;
@@ -123,6 +127,7 @@
     [_info addTarget:(self) action:@selector(infoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_newGame addTarget:(self) action:@selector(newGameButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
+    // Animate
     [UIView animateWithDuration:1.5 animations:^{
         _gridView.frame = CGRectMake(gridx, gridy, gridSize, gridSize);
         _numPadView.alpha = 1.0;
@@ -185,6 +190,13 @@
         [_gridModel updateGridValues:valueOfHighlightedButton atRow:row andCol:col];
         // Check if the player completes the game.
         if ([_gridModel boardCompleted]) {
+            /*
+            HKSOWinViewController* _winView = [[HKSOWinViewController alloc] init];
+            [_winView setTarget:self andAction:@selector(newGameButtonPressed:)];
+            [self.navigationController modalPresentationStyle];
+            [self.navigationController presentViewController:_winView animated:YES completion:nil];
+            */
+            
             UIAlertView* winAlert = [[UIAlertView alloc] initWithTitle:@"YOU WON!!" message:@"Congratulations" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
             [winAlert show];
         }
