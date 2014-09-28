@@ -12,10 +12,9 @@
 @interface HKSOGridModel() {
     HKSOGridGenerator* _gridGenerator;
     NSString* _gridValues;
+    int currentGrid [9][9];
 }
 @end
-
-int currentGrid [9][9];
 
 
 @implementation HKSOGridModel
@@ -29,6 +28,12 @@ int currentGrid [9][9];
     }
     
     return self;
+}
+
+- (void) setCurrentGrid:(NSString*) values
+{
+    _gridValues = values;
+    [self parseGridValues];
 }
 
 // parse _gridValues string to fill in currentGrid array

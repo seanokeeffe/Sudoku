@@ -184,7 +184,7 @@
         return;
     }
     
-    int row = ((UIButton*)sender).tag / 9;
+    int row = (int)((UIButton*)sender).tag / 9;
     int col = ((UIButton*)sender).tag % 9;
     
     // If the value is consistent, we then update the cell.

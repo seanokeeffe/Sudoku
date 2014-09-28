@@ -23,6 +23,8 @@
     // Put setup code here. This method is called before the invocation of each test method in the class.
     _gridModel = nil;
     _gridModel = [[HKSOGridModel alloc] init];
+    [_gridModel setCurrentGrid:@"8..6...38..2581.4..9.......546...8932.9..46......65..2..54.6.17...3....494..7.2.."];
+    
 }
 
 - (void)tearDown
@@ -37,7 +39,7 @@
 - (void)testGetValueatRowandColumn
 {
 
-    XCTAssertTrue([_gridModel getValueAtRow:0 andColumn:0]==7,@"Top Left Corner Value");
+    XCTAssertTrue([_gridModel getValueAtRow:0 andColumn:0]==8,@"Top Left Corner Value");
     NSLog(@"value at 8,8: %d",[_gridModel getValueAtRow:8 andColumn:8]);
     XCTAssertTrue([_gridModel getValueAtRow:8 andColumn:8]==0,@"Bottom Right Corner Value");
     XCTAssertTrue([_gridModel getValueAtRow:3 andColumn:7]==9,@"Cell in the middle");
@@ -153,6 +155,26 @@
     XCTAssertTrue([_gridModel boardCompleted],@"Check that the board is complete");
 }
 
+- (void) testResetGrid
+{
+    [_gridModel updateCurrentGrid:8 atRow:6 andCol:0];
+    [_gridModel updateCurrentGrid:2 atRow:6 andCol:1];
+    [_gridModel updateCurrentGrid:9 atRow:6 andCol:4];
+    [_gridModel updateCurrentGrid:3 atRow:6 andCol:6];
+    
+    XCTAssertFalse([_gridModel getValueAtRow:6 andColumn:0]==0,@"Value did not change");
+    XCTAssertFalse([_gridModel getValueAtRow:6 andColumn:1]==0,@"Value did not change");
+    XCTAssertFalse([_gridModel getValueAtRow:6 andColumn:4]==0,@"Value did not change");
+    XCTAssertFalse([_gridModel getValueAtRow:6 andColumn:6]==0,@"Value did not change");
+    
+    [_gridModel resetGridValues];
+
+    XCTAssertTrue([_gridModel getValueAtRow:6 andColumn:0]==0,@"Value did not change");
+    XCTAssertTrue([_gridModel getValueAtRow:6 andColumn:1]==0,@"Value did not change");
+    XCTAssertTrue([_gridModel getValueAtRow:6 andColumn:4]==0,@"Value did not change");
+    XCTAssertTrue([_gridModel getValueAtRow:6 andColumn:6]==0,@"Value did not change");
+    
+}
 
 
 @end

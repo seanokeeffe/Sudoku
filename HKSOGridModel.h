@@ -16,5 +16,6 @@
 - (BOOL) boardCompleted;
 - (void) resetGridValues;
 - (void) startNewGame;
+- (void) setCurrentGrid:(NSString*) values;
 
 @end

@@ -64,7 +64,7 @@
     }
     ((UIButton*) sender).backgroundColor = [UIColor colorWithRed:0.5 green:0.7 blue:0.5 alpha:1.0];
     // update the current highlighted cell
-    highlightedButton = ((UIButton*)sender).tag;
+    highlightedButton = (int)((UIButton*)sender).tag;
     
 }
 
