@@ -10,6 +10,7 @@
 #import "HKSOGridView.h"
 #import "HKSONumPadView.h"
 #import "HKSOGridModel.h"
+#import "HKSOAboutViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 
@@ -20,8 +21,10 @@
     HKSONumPadView* _numPadView;
     UIButton* _restart;
     UIButton* _newGame;
+    UIButton* _info;
     AVAudioPlayer* _audioPlayerGridPressed;
     AVAudioPlayer* _audioPlayerWrongGridPressed;
+
 }
 
 @end
@@ -31,63 +34,101 @@
 - (void)viewDidLoad
 {
   
+    [super viewDidLoad];
+
+    // Initialize misc
+    self.view.backgroundColor = [UIColor whiteColor];
+    CGRect frame = self.view.frame;
+    self.title = @"Sudoku";
     
+    // Sound set up
     NSURL *SoundURLGridPressed = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"button-11" ofType:@"wav"]];
     _audioPlayerGridPressed = [[AVAudioPlayer alloc] initWithContentsOfURL:SoundURLGridPressed error:nil];
-    
     NSURL *SoundURLWrongGridPressed = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"button-18" ofType:@"wav"]];
     _audioPlayerWrongGridPressed = [[AVAudioPlayer alloc] initWithContentsOfURL:SoundURLWrongGridPressed error:nil];
     
-    [super viewDidLoad];
+    // create gridView
+    CGFloat gridx    = CGRectGetWidth(frame) * .1;
+    CGFloat gridy    = CGRectGetHeight(frame) * .1;
+    CGFloat gridSize = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame)) * .80;
+    CGRect gridFrame = CGRectMake(gridx, -gridSize, gridSize, gridSize); // -gridSize to initally place it off screen
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    // create grid frame
-    CGRect frame = self.view.frame;
-    CGFloat x = CGRectGetWidth(frame) * .1;
-    CGFloat y = CGRectGetHeight(frame) * .1;
-    CGFloat size = MIN(CGRectGetWidth(frame), CGRectGetHeight(frame)) * .80;
-    
-    CGRect gridFrame = CGRectMake(x, y, size, size);
-    
-    // create grid view
     _gridView = [[HKSOGridView alloc] initWithFrame:gridFrame];
     _gridView.backgroundColor = [UIColor blackColor];
 
     // create numPad view
-    y = y + size + 100;
-    CGRect numPadFrame = CGRectMake(x, y, size, 80);
+    CGFloat numPadx      = gridx;
+    CGFloat numPady      = gridy + gridSize + 100; // A little past the grid
+    CGFloat numPadWidth  = gridSize;
+    CGFloat numPadHeight = 80;
+    CGRect numPadFrame   = CGRectMake(numPadx, numPady, numPadWidth, numPadHeight);
+    
     _numPadView = [[HKSONumPadView alloc] initWithFrame:numPadFrame];
     _numPadView.backgroundColor = [UIColor blackColor];
+    _numPadView.alpha = 0.0; // initally transparent
     
-    // initialize gridModel
+    // create gridModel
     _gridModel = [[HKSOGridModel alloc] init];
     
-    // initialize restart button
-    CGRect restartFrame = CGRectMake(x + 80, y + 120, 100, 50);
+    // create restart button
+    CGFloat restartx      = numPadx + 80; // A little in from the end
+    CGFloat restarty      = numPady + 120;
+    CGFloat restartWidth  = 100;
+    CGFloat restartHeight = 50;
+    CGRect restartFrame   = CGRectMake(-restartWidth, restarty, restartWidth, restartHeight); // initially off the screen
+    
     _restart = [[UIButton alloc] initWithFrame:restartFrame];
     [_restart setTitle:[NSString stringWithFormat:@"Restart"] forState: UIControlStateNormal];
     [_restart setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [[_restart layer] setBorderWidth:2.0f];
     [[_restart layer] setBorderColor:[UIColor blackColor].CGColor];
-
     
     // initialize new game button
-    CGRect newGameFrame = CGRectMake(x + 450, y + 120, 100, 50);
+    CGFloat newGameWidth  = 100;
+    CGFloat newGameHeight = 50;
+    CGFloat newGamex      = numPadx+numPadWidth-newGameWidth-80;
+    CGFloat newGamey      = restarty;
+    CGRect newGameFrame   = CGRectMake(frame.size.width, newGamey, newGameWidth, newGameHeight); // initially off the screen
+    
     _newGame = [[UIButton alloc] initWithFrame:newGameFrame];
     [_newGame setTitle:[NSString stringWithFormat:@"New Game"] forState: UIControlStateNormal];
     [_newGame setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [[_newGame layer] setBorderWidth:2.0f];
     [[_newGame layer] setBorderColor:[UIColor blackColor].CGColor];
     
-    [self.view addSubview:_newGame];
-    [self.view addSubview:_restart];
+    // create info button
+    CGFloat infox          = self.view.center.x - 50;
+    CGFloat infoy          = newGamey;
+    CGFloat infoWidth      = 100;
+    CGFloat infoHeight     = 50;
+    CGRect infoButtonFrame = CGRectMake(infox, frame.size.height, infoWidth, infoHeight); //initally off screen
+    
+    _info = [[UIButton alloc] initWithFrame:infoButtonFrame];
+    [_info setTitle:[NSString stringWithFormat:@"Info"] forState:UIControlStateNormal];
+    [_info setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [[_info layer] setBorderWidth:2.0f];
+    [[_info layer] setBorderColor:[UIColor blackColor].CGColor];
+    
+    // Add everythign to screen
     [self initializeGrid];
     [self.view addSubview:_gridView];
     [self.view addSubview:_numPadView];
+    [self.view addSubview:_newGame];
+    [self.view addSubview:_info];
+    [self.view addSubview:_restart];
+    
+    // Target action setup
     [_gridView addTarget:(self) action:@selector(gridCellSelected:)];
     [_restart addTarget:(self) action:@selector(restartButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_info addTarget:(self) action:@selector(infoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_newGame addTarget:(self) action:@selector(newGameButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [UIView animateWithDuration:1.5 animations:^{
+        _gridView.frame = CGRectMake(gridx, gridy, gridSize, gridSize);
+        _numPadView.alpha = 1.0;
+        _restart.frame = CGRectMake(restartx, restarty, restartWidth, restartHeight);
+        _info.frame = CGRectMake(infox, infoy, infoWidth, infoHeight);
+        _newGame.frame = CGRectMake(newGamex, newGamey, newGameWidth, newGameHeight);}];
     
 }
 
@@ -110,6 +151,12 @@
     [self initializeGrid];
 }
 
+- (void) infoButtonPressed:(id) sender
+{
+    HKSOAboutViewController *aboutViewController = [[HKSOAboutViewController alloc] init];
+    [self.navigationController pushViewController:aboutViewController animated:YES];
+}
+
 - (void) newGameButtonPressed:(id) sender
 {
     [_gridModel startNewGame];
@@ -119,9 +166,7 @@
 
 - (void) gridCellSelected:(id) sender
 {
-    
-    
-    
+
     int valueOfHighlightedButton = [_numPadView getHighlightedButton] + 1;
     if (valueOfHighlightedButton == 0) {
         return;
@@ -132,7 +177,7 @@
     
     // If the value is consistent, we then update the cell.
     if ([_gridModel canAddThisValue:valueOfHighlightedButton toRow:row andCol: col]) {
-        
+        NSLog(@"Trying to add: %d, to row: %d, and col: %d", valueOfHighlightedButton, row, col);
         [_audioPlayerGridPressed prepareToPlay];
         [_audioPlayerGridPressed play];
         

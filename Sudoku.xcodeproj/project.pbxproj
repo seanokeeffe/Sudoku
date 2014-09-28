@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		74FCCE8119D796ED00378D4F /* Sudoku_About.html in Resources */ = {isa = PBXBuildFile; fileRef = 74FCCE8019D796ED00378D4F /* Sudoku_About.html */; };
+		74FCCE8419D7973700378D4F /* HKSOAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FCCE8319D7973700378D4F /* HKSOAboutViewController.m */; };
 		A30DD86119D75E490076B0A2 /* HKSOGridGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */; };
 		A30DD86419D75EE30076B0A2 /* grid1.txt in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86219D75EE30076B0A2 /* grid1.txt */; };
 		A30DD86519D75EE30076B0A2 /* grid2.txt in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86319D75EE30076B0A2 /* grid2.txt */; };
@@ -58,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		74FCCE8019D796ED00378D4F /* Sudoku_About.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Sudoku_About.html; sourceTree = SOURCE_ROOT; };
+		74FCCE8219D7973700378D4F /* HKSOAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSOAboutViewController.h; path = ../HKSOAboutViewController.h; sourceTree = "<group>"; };
+		74FCCE8319D7973700378D4F /* HKSOAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKSOAboutViewController.m; path = ../HKSOAboutViewController.m; sourceTree = "<group>"; };
 		A30DD85F19D75E490076B0A2 /* HKSOGridGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSOGridGenerator.h; sourceTree = "<group>"; };
 		A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSOGridGenerator.m; sourceTree = "<group>"; };
 		A30DD86219D75EE30076B0A2 /* grid1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid1.txt; sourceTree = "<group>"; };
@@ -154,6 +159,8 @@
 		D884C27719C25E5A00964320 /* Sudoku */ = {
 			isa = PBXGroup;
 			children = (
+				74FCCE8219D7973700378D4F /* HKSOAboutViewController.h */,
+				74FCCE8319D7973700378D4F /* HKSOAboutViewController.m */,
 				A3312F4719CD19FB00D7D865 /* HKSOGridModel.h */,
 				A3312F4819CD19FB00D7D865 /* HKSOGridModel.m */,
 				A3312F4A19CD1A1100D7D865 /* HKSONumPadView.h */,
@@ -165,8 +172,6 @@
 				D884C28719C25E5A00964320 /* HKSOViewController.m */,
 				A30DD85F19D75E490076B0A2 /* HKSOGridGenerator.h */,
 				A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */,
-				A30DD86219D75EE30076B0A2 /* grid1.txt */,
-				A30DD86319D75EE30076B0A2 /* grid2.txt */,
 				D8CA563B19C3740D0050147B /* HKSOGridView.h */,
 				D8CA563C19C3740D0050147B /* HKSOGridView.m */,
 				D884C28919C25E5A00964320 /* Images.xcassets */,
@@ -178,6 +183,9 @@
 		D884C27819C25E5A00964320 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A30DD86219D75EE30076B0A2 /* grid1.txt */,
+				A30DD86319D75EE30076B0A2 /* grid2.txt */,
+				74FCCE8019D796ED00378D4F /* Sudoku_About.html */,
 				A30DD86C19D7784E0076B0A2 /* button-18.wav */,
 				A30DD86619D771BA0076B0A2 /* button-11.wav */,
 				D884C27919C25E5A00964320 /* Sudoku-Info.plist */,
@@ -285,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D884C28A19C25E5A00964320 /* Images.xcassets in Resources */,
+				74FCCE8119D796ED00378D4F /* Sudoku_About.html in Resources */,
 				D884C27C19C25E5A00964320 /* InfoPlist.strings in Resources */,
 				A30DD86419D75EE30076B0A2 /* grid1.txt in Resources */,
 				D884C28519C25E5A00964320 /* Main.storyboard in Resources */,
@@ -328,6 +337,7 @@
 				A3312F4919CD19FB00D7D865 /* HKSOGridModel.m in Sources */,
 				D884C27E19C25E5A00964320 /* main.m in Sources */,
 				A30DD86119D75E490076B0A2 /* HKSOGridGenerator.m in Sources */,
+				74FCCE8419D7973700378D4F /* HKSOAboutViewController.m in Sources */,
 				D884C28219C25E5A00964320 /* HKSOAppDelegate.m in Sources */,
 				D884C28819C25E5A00964320 /* HKSOViewController.m in Sources */,
 				A3312F4C19CD1A1100D7D865 /* HKSONumPadView.m in Sources */,

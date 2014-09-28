@@ -43,14 +43,8 @@
                 button.backgroundColor = [UIColor whiteColor];
                 button.tag = buttonTag++;
                 
-                UIImage* image = [self imageWithColor:[UIColor yellowColor]];
-                [button setBackgroundImage:image forState:UIControlStateHighlighted];
-                [button setShowsTouchWhenHighlighted:YES];
-                
                 [gridCells addObject:button];
                 [self addSubview:button];
-                
-                [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlEventTouchUpInside];
                 
                 // adjusting for the border widths between columns
                 if (j == 8){
@@ -81,12 +75,20 @@
 {
     UIButton* button = [gridCells objectAtIndex:9 * row + col];
     
+    [button removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlEventTouchUpInside];
+    
     if (value != 0) {
         [button setTitle:[NSString stringWithFormat:@"%d",value] forState:UIControlStateNormal];
+        button.titleLabel.font = [UIFont boldSystemFontOfSize:18];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     } else {
         [button setTitle:[NSString stringWithFormat:@" "] forState:UIControlStateNormal];
     }
+    
+    UIImage* image = [self imageWithColor:[UIColor yellowColor]];
+    [button setBackgroundImage:image forState:UIControlStateHighlighted];
+    [button setShowsTouchWhenHighlighted:YES];
     
 }
 
@@ -95,9 +97,13 @@
 -(void)setToInitialAtRow:(int)row andColumn:(int)col
 {
     UIButton* button = [gridCells objectAtIndex:9 * row + col];
-    [button removeTarget:self action:@selector(cellSelected:) forControlEvents:UIControlEventAllTouchEvents];
+    [button removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:20];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    
+    UIImage* image = [self imageWithColor:[UIColor redColor]];
+    [button setBackgroundImage:image forState:UIControlStateHighlighted];
+    [button setShowsTouchWhenHighlighted:YES];
 }
 
 - (void) addTarget:(id)theTarget action:(SEL)theAction
