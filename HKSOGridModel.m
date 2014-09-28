@@ -14,6 +14,7 @@
     NSString* _gridValues;
 }
 @end
+
 int currentGrid [9][9];
 
 
@@ -22,7 +23,6 @@ int currentGrid [9][9];
 - (id) init
 {
     self = [super init];
-
     if (self) {
         _gridGenerator = [[HKSOGridGenerator alloc] init];
         [self startNewGame];
@@ -31,6 +31,7 @@ int currentGrid [9][9];
     return self;
 }
 
+// parse _gridValues string to fill in currentGrid array
 - (void) parseGridValues
 {
     for (int i = 0; i < 9; ++i) {
@@ -52,6 +53,7 @@ int currentGrid [9][9];
     
     return currentGrid[row][col];
 }
+
 
 - (BOOL) canAddThisValue:(int) val toRow:(int) row andCol:(int) col
 {
@@ -102,6 +104,7 @@ int currentGrid [9][9];
     return YES;
 }
 
+// check if the player wins the game
 - (BOOL) boardCompleted
 {
     for (int i = 0; i < 9; ++i) {
@@ -112,8 +115,8 @@ int currentGrid [9][9];
     return YES;
 }
 
-
-- (void) updateGridValues:(int)newVal atRow:(int) row andCol:(int) col
+// update currentGrid array to reflect cell changes
+- (void) updateCurrentGrid:(int)newVal atRow:(int) row andCol:(int) col
 {
     NSAssert((row >= 0) && (row <= 8), @"Grid row index out of range");
     NSAssert((col >= 0) && (col <= 8), @"Grid col index out of range");

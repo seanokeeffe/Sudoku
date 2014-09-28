@@ -12,7 +12,7 @@
 
 - (int) getValueAtRow:(int) row andColumn:(int)col;
 - (BOOL) canAddThisValue:(int) val toRow:(int) row andCol:(int) col;
-- (void) updateGridValues:(int)newVal atRow:(int) row andCol:(int) col;
+- (void) updateCurrentGrid:(int)newVal atRow:(int) row andCol:(int) col;
 - (BOOL) boardCompleted;
 - (void) resetGridValues;
 - (void) startNewGame;

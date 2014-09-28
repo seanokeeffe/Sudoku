@@ -26,13 +26,14 @@
     if (self) {
         
         // Initialization code
+        
         gridCells = [[NSMutableArray alloc] init];
         
-        CGFloat x = frame.size.height/24.0;
-        CGFloat y = frame.size.height/24.0;
-        CGFloat buttonSize = frame.size.height/12.0;
-        CGFloat thickBorder = frame.size.height/24.0;
-        CGFloat thinBorder = frame.size.height/72.0;
+        CGFloat x = frame.size.height / 24.0;
+        CGFloat y = frame.size.height / 24.0;
+        CGFloat buttonSize = frame.size.height / 12.0;
+        CGFloat thickBorder = frame.size.height / 24.0;
+        CGFloat thinBorder = frame.size.height / 72.0;
         
         int buttonTag = 0;
         for (int i = 0; i < 9; i++){
@@ -40,7 +41,9 @@
                 // create and set up a button
                 CGRect buttonFrame = CGRectMake (x,y,buttonSize,buttonSize);
                 UIButton* button = [[UIButton alloc] initWithFrame:buttonFrame];
-                button.backgroundColor = [UIColor whiteColor];
+                
+                [self setBackgroundColorAtRow:i AndCol:j ofButton:button];
+                
                 button.tag = buttonTag++;
                 
                 UIImage* image = [self imageWithColor:[UIColor yellowColor]];
@@ -109,6 +112,16 @@
 - (void) cellSelected:(id)sender
 {
     [target performSelector:action withObject:((UIButton*) sender)];
+}
+
+// set different background colors to differentiate blocks
+- (void) setBackgroundColorAtRow:(int)i AndCol:(int)j ofButton:(UIButton*)button
+{
+    if (((i < 3 || i > 5) && (j > 2 && j < 6)) || ((i > 2 && i < 6) && (j < 3 || j > 5))) {
+        button.backgroundColor = [UIColor colorWithRed:1.0 green:0.9 blue:0.8 alpha:1.0];
+    } else {
+        button.backgroundColor = [UIColor colorWithRed:1.0 green:0.7 blue:0.6 alpha:1.0];
+    }
 }
 
 // creates an image of one solid color for the cells highlighted state

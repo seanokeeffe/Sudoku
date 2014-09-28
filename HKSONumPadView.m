@@ -37,7 +37,7 @@
             
             CGRect buttonFrame = CGRectMake (x,y,buttonSize,buttonSize);
             UIButton* button = [[UIButton alloc] initWithFrame:buttonFrame];
-            button.backgroundColor = [UIColor whiteColor];
+            button.backgroundColor = [UIColor colorWithRed:0.9 green:0.8 blue:1.0 alpha:0.9];
             button.tag = i;
             
             x = x + buttonSize + border;
@@ -60,9 +60,9 @@
 {
     if (highlightedButton >= 0) {
         // If there is an already highlighted cell, change its background color back to white.
-        [[cells objectAtIndex:highlightedButton] setBackgroundColor:[UIColor whiteColor]];
+        [[cells objectAtIndex:highlightedButton] setBackgroundColor:[UIColor colorWithRed:0.9 green:0.8 blue:1.0 alpha:0.9]];
     }
-    ((UIButton*) sender).backgroundColor = [UIColor yellowColor];
+    ((UIButton*) sender).backgroundColor = [UIColor colorWithRed:0.5 green:0.7 blue:0.5 alpha:1.0];
     // update the current highlighted cell
     highlightedButton = ((UIButton*)sender).tag;
     

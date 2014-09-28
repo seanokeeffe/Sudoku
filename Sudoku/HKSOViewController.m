@@ -68,8 +68,10 @@
     _restart = [[UIButton alloc] initWithFrame:restartFrame];
     [_restart setTitle:[NSString stringWithFormat:@"Restart"] forState: UIControlStateNormal];
     [_restart setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [[_restart layer] setBorderWidth:2.0f];
-    [[_restart layer] setBorderColor:[UIColor blackColor].CGColor];
+    [_restart setBackgroundImage:[UIImage imageNamed:@"Button-Normal.png"]
+                        forState:UIControlStateNormal];
+    [_restart setBackgroundImage:[UIImage imageNamed:@"Button-Highlighted.png"]
+                        forState:UIControlStateHighlighted];
 
     
     // initialize new game button
@@ -77,8 +79,10 @@
     _newGame = [[UIButton alloc] initWithFrame:newGameFrame];
     [_newGame setTitle:[NSString stringWithFormat:@"New Game"] forState: UIControlStateNormal];
     [_newGame setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [[_newGame layer] setBorderWidth:2.0f];
-    [[_newGame layer] setBorderColor:[UIColor blackColor].CGColor];
+    [_newGame setBackgroundImage:[UIImage imageNamed:@"Button-Normal.png"]
+                        forState:UIControlStateNormal];
+    [_newGame setBackgroundImage:[UIImage imageNamed:@"Button-Highlighted.png"]
+                        forState:UIControlStateHighlighted];
     
     [self.view addSubview:_newGame];
     [self.view addSubview:_restart];
@@ -119,9 +123,6 @@
 
 - (void) gridCellSelected:(id) sender
 {
-    
-    
-    
     int valueOfHighlightedButton = [_numPadView getHighlightedButton] + 1;
     if (valueOfHighlightedButton == 0) {
         return;
@@ -137,7 +138,7 @@
         [_audioPlayerGridPressed play];
         
         [_gridView setValueAtRow:row andColumn:col toValue: valueOfHighlightedButton];
-        [_gridModel updateGridValues:valueOfHighlightedButton atRow:row andCol:col];
+        [_gridModel updateCurrentGrid:valueOfHighlightedButton atRow:row andCol:col];
         // Check if the player completes the game.
         if ([_gridModel boardCompleted]) {
             UIAlertView* winAlert = [[UIAlertView alloc] initWithTitle:@"YOU WON!!" message:@"Congratulations" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
