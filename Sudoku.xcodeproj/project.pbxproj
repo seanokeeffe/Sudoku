@@ -197,6 +197,7 @@
 				A352ADFB19D8B1C900056C64 /* Wallpaper.jpg */,
 				A30DD86219D75EE30076B0A2 /* grid1.txt */,
 				A30DD86319D75EE30076B0A2 /* grid2.txt */,
+				74FCCE8019D796ED00378D4F /* Sudoku_About.html */,
 				A352ADF919D8A63900056C64 /* Button-Highlighted.png */,
 				A352ADF719D8A4F500056C64 /* Button-Normal.png */,
 				A30DD86C19D7784E0076B0A2 /* button-18.wav */,
@@ -306,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D884C28A19C25E5A00964320 /* Images.xcassets in Resources */,
+				74FCCE8119D796ED00378D4F /* Sudoku_About.html in Resources */,
 				A352ADF819D8A4F500056C64 /* Button-Normal.png in Resources */,
 				A352ADFC19D8B1C900056C64 /* Wallpaper.jpg in Resources */,
 				D884C27C19C25E5A00964320 /* InfoPlist.strings in Resources */,

@@ -115,8 +115,10 @@
     _info = [[UIButton alloc] initWithFrame:infoButtonFrame];
     [_info setTitle:[NSString stringWithFormat:@"Info"] forState:UIControlStateNormal];
     [_info setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [[_info layer] setBorderWidth:2.0f];
-    [[_info layer] setBorderColor:[UIColor blackColor].CGColor];
+    [_info setBackgroundImage:[UIImage imageNamed:@"Button-Normal.png"]
+                        forState:UIControlStateNormal];
+    [_info setBackgroundImage:[UIImage imageNamed:@"Button-Highlighted.png"]
+                        forState:UIControlStateHighlighted];
     
     // Add everythign to screen
     [self initializeGrid];
@@ -176,6 +178,7 @@
 
 - (void) gridCellSelected:(id) sender
 {
+
     int valueOfHighlightedButton = [_numPadView getHighlightedButton] + 1;
     if (valueOfHighlightedButton == 0) {
         return;
