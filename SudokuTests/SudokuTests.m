@@ -44,7 +44,7 @@
     
     XCTAssertFalse([_gridModel getValueAtRow:1 andColumn:5]==0,@"Negative testing case");
     
-    [_gridModel updateGridValues:7 atRow:3 andCol:1];
+    [_gridModel updateCurrentGrid:7 atRow:3 andCol:1];
     XCTAssertTrue([_gridModel getValueAtRow:3 andColumn:1]==7,@"test get method after updating");
     
     XCTAssertThrowsSpecific([_gridModel getValueAtRow:0 andColumn:10], NSException);
@@ -64,11 +64,11 @@
     XCTAssertTrue([_gridModel canAddThisValue:2 toRow:6 andCol:1],@"Checking consistent entry");
     XCTAssertTrue([_gridModel canAddThisValue:5 toRow:8 andCol:8],@"Checking consistent entry for corner");
     
-    [_gridModel updateGridValues:1 atRow:0 andCol:1];
+    [_gridModel updateCurrentGrid:1 atRow:0 andCol:1];
     XCTAssertFalse([_gridModel canAddThisValue:1 toRow:2 andCol:2],@"Checking inconsistency after inserting new value in the same block");
-    [_gridModel updateGridValues:2 atRow:7 andCol:1];
+    [_gridModel updateCurrentGrid:2 atRow:7 andCol:1];
     XCTAssertFalse([_gridModel canAddThisValue:2 toRow:6 andCol:1],@"Checking inconsistency after inserting new value in the same column");
-    [_gridModel updateGridValues:9 atRow:5 andCol:3];
+    [_gridModel updateCurrentGrid:9 atRow:5 andCol:3];
     XCTAssertFalse([_gridModel canAddThisValue:9 toRow:5 andCol:6],@"Checking inconsistency after inserting new value in the same row");
     
     XCTAssertThrowsSpecific([_gridModel canAddThisValue:10 toRow:0 andCol:0], NSException);
@@ -76,22 +76,22 @@
     XCTAssertThrowsSpecific([_gridModel canAddThisValue:6 toRow:0 andCol:-4], NSException);
 }
 
-// Tests for the updateGridValuesatRowandCol method.
+// Tests for the updateCurrentGridatRowandCol method.
 // Functionality: Updates the grid at the specified location with a new given value.
 // Assumption: Assume that this is only called on valid spots with valid values.
-- (void)testUpdateGridValuesatRowandCol
+- (void)testupdateCurrentGridatRowandCol
 {
-    [_gridModel updateGridValues:5 atRow:2 andCol:4];
+    [_gridModel updateCurrentGrid:5 atRow:2 andCol:4];
     XCTAssertTrue([_gridModel getValueAtRow:2 andColumn:4]==5,@"test update for a previously empty cell");
-    [_gridModel updateGridValues:9 atRow:3 andCol:1];
+    [_gridModel updateCurrentGrid:9 atRow:3 andCol:1];
     XCTAssertTrue([_gridModel getValueAtRow:3 andColumn:1]==9,@"test update for an initial cell");
-    [_gridModel updateGridValues:3 atRow:5 andCol:5];
-    [_gridModel updateGridValues:9 atRow:5 andCol:5];
+    [_gridModel updateCurrentGrid:3 atRow:5 andCol:5];
+    [_gridModel updateCurrentGrid:9 atRow:5 andCol:5];
     XCTAssertTrue([_gridModel getValueAtRow:5 andColumn:5]==9,@"test update after another update");
     
-    XCTAssertThrowsSpecific([_gridModel updateGridValues:10 atRow:0 andCol:6], NSException);
-    XCTAssertThrowsSpecific([_gridModel updateGridValues:7 atRow:-1 andCol:8], NSException);
-    XCTAssertThrowsSpecific([_gridModel updateGridValues:6 atRow:8 andCol:15], NSException);
+    XCTAssertThrowsSpecific([_gridModel updateCurrentGrid:10 atRow:0 andCol:6], NSException);
+    XCTAssertThrowsSpecific([_gridModel updateCurrentGrid:7 atRow:-1 andCol:8], NSException);
+    XCTAssertThrowsSpecific([_gridModel updateCurrentGrid:6 atRow:8 andCol:15], NSException);
     
 }
 
@@ -102,53 +102,53 @@
 {
     XCTAssertFalse([_gridModel boardCompleted],@"Check when board is incomplete");
     
-    [_gridModel updateGridValues:1 atRow:0 andCol:1];
-    [_gridModel updateGridValues:4 atRow:0 andCol:2];
-    [_gridModel updateGridValues:2 atRow:0 andCol:4];
-    [_gridModel updateGridValues:9 atRow:0 andCol:5];
-    [_gridModel updateGridValues:5 atRow:0 andCol:6];
-    [_gridModel updateGridValues:6 atRow:1 andCol:0];
-    [_gridModel updateGridValues:3 atRow:1 andCol:1];
-    [_gridModel updateGridValues:7 atRow:1 andCol:6];
-    [_gridModel updateGridValues:9 atRow:1 andCol:8];
-    [_gridModel updateGridValues:5 atRow:2 andCol:0];
-    [_gridModel updateGridValues:8 atRow:2 andCol:2];
-    [_gridModel updateGridValues:7 atRow:2 andCol:3];
-    [_gridModel updateGridValues:4 atRow:2 andCol:4];
-    [_gridModel updateGridValues:3 atRow:2 andCol:5];
-    [_gridModel updateGridValues:1 atRow:2 andCol:6];
-    [_gridModel updateGridValues:2 atRow:2 andCol:7];
-    [_gridModel updateGridValues:6 atRow:2 andCol:8];
-    [_gridModel updateGridValues:2 atRow:3 andCol:3];
-    [_gridModel updateGridValues:1 atRow:3 andCol:4];
-    [_gridModel updateGridValues:7 atRow:3 andCol:5];
-    [_gridModel updateGridValues:7 atRow:4 andCol:1];
-    [_gridModel updateGridValues:8 atRow:4 andCol:3];
-    [_gridModel updateGridValues:3 atRow:4 andCol:4];
-    [_gridModel updateGridValues:5 atRow:4 andCol:7];
-    [_gridModel updateGridValues:1 atRow:4 andCol:8];
-    [_gridModel updateGridValues:3 atRow:5 andCol:0];
-    [_gridModel updateGridValues:8 atRow:5 andCol:1];
-    [_gridModel updateGridValues:1 atRow:5 andCol:2];
-    [_gridModel updateGridValues:9 atRow:5 andCol:3];
-    [_gridModel updateGridValues:4 atRow:5 andCol:6];
-    [_gridModel updateGridValues:7 atRow:5 andCol:7];
-    [_gridModel updateGridValues:8 atRow:6 andCol:0];
-    [_gridModel updateGridValues:2 atRow:6 andCol:1];
-    [_gridModel updateGridValues:9 atRow:6 andCol:4];
-    [_gridModel updateGridValues:3 atRow:6 andCol:6];
-    [_gridModel updateGridValues:1 atRow:7 andCol:0];
-    [_gridModel updateGridValues:6 atRow:7 andCol:1];
-    [_gridModel updateGridValues:7 atRow:7 andCol:2];
-    [_gridModel updateGridValues:5 atRow:7 andCol:4];
-    [_gridModel updateGridValues:2 atRow:7 andCol:5];
-    [_gridModel updateGridValues:9 atRow:7 andCol:6];
-    [_gridModel updateGridValues:8 atRow:7 andCol:7];
-    [_gridModel updateGridValues:3 atRow:8 andCol:2];
-    [_gridModel updateGridValues:1 atRow:8 andCol:3];
-    [_gridModel updateGridValues:8 atRow:8 andCol:5];
-    [_gridModel updateGridValues:6 atRow:8 andCol:7];
-    [_gridModel updateGridValues:5 atRow:8 andCol:8];
+    [_gridModel updateCurrentGrid:1 atRow:0 andCol:1];
+    [_gridModel updateCurrentGrid:4 atRow:0 andCol:2];
+    [_gridModel updateCurrentGrid:2 atRow:0 andCol:4];
+    [_gridModel updateCurrentGrid:9 atRow:0 andCol:5];
+    [_gridModel updateCurrentGrid:5 atRow:0 andCol:6];
+    [_gridModel updateCurrentGrid:6 atRow:1 andCol:0];
+    [_gridModel updateCurrentGrid:3 atRow:1 andCol:1];
+    [_gridModel updateCurrentGrid:7 atRow:1 andCol:6];
+    [_gridModel updateCurrentGrid:9 atRow:1 andCol:8];
+    [_gridModel updateCurrentGrid:5 atRow:2 andCol:0];
+    [_gridModel updateCurrentGrid:8 atRow:2 andCol:2];
+    [_gridModel updateCurrentGrid:7 atRow:2 andCol:3];
+    [_gridModel updateCurrentGrid:4 atRow:2 andCol:4];
+    [_gridModel updateCurrentGrid:3 atRow:2 andCol:5];
+    [_gridModel updateCurrentGrid:1 atRow:2 andCol:6];
+    [_gridModel updateCurrentGrid:2 atRow:2 andCol:7];
+    [_gridModel updateCurrentGrid:6 atRow:2 andCol:8];
+    [_gridModel updateCurrentGrid:2 atRow:3 andCol:3];
+    [_gridModel updateCurrentGrid:1 atRow:3 andCol:4];
+    [_gridModel updateCurrentGrid:7 atRow:3 andCol:5];
+    [_gridModel updateCurrentGrid:7 atRow:4 andCol:1];
+    [_gridModel updateCurrentGrid:8 atRow:4 andCol:3];
+    [_gridModel updateCurrentGrid:3 atRow:4 andCol:4];
+    [_gridModel updateCurrentGrid:5 atRow:4 andCol:7];
+    [_gridModel updateCurrentGrid:1 atRow:4 andCol:8];
+    [_gridModel updateCurrentGrid:3 atRow:5 andCol:0];
+    [_gridModel updateCurrentGrid:8 atRow:5 andCol:1];
+    [_gridModel updateCurrentGrid:1 atRow:5 andCol:2];
+    [_gridModel updateCurrentGrid:9 atRow:5 andCol:3];
+    [_gridModel updateCurrentGrid:4 atRow:5 andCol:6];
+    [_gridModel updateCurrentGrid:7 atRow:5 andCol:7];
+    [_gridModel updateCurrentGrid:8 atRow:6 andCol:0];
+    [_gridModel updateCurrentGrid:2 atRow:6 andCol:1];
+    [_gridModel updateCurrentGrid:9 atRow:6 andCol:4];
+    [_gridModel updateCurrentGrid:3 atRow:6 andCol:6];
+    [_gridModel updateCurrentGrid:1 atRow:7 andCol:0];
+    [_gridModel updateCurrentGrid:6 atRow:7 andCol:1];
+    [_gridModel updateCurrentGrid:7 atRow:7 andCol:2];
+    [_gridModel updateCurrentGrid:5 atRow:7 andCol:4];
+    [_gridModel updateCurrentGrid:2 atRow:7 andCol:5];
+    [_gridModel updateCurrentGrid:9 atRow:7 andCol:6];
+    [_gridModel updateCurrentGrid:8 atRow:7 andCol:7];
+    [_gridModel updateCurrentGrid:3 atRow:8 andCol:2];
+    [_gridModel updateCurrentGrid:1 atRow:8 andCol:3];
+    [_gridModel updateCurrentGrid:8 atRow:8 andCol:5];
+    [_gridModel updateCurrentGrid:6 atRow:8 andCol:7];
+    [_gridModel updateCurrentGrid:5 atRow:8 andCol:8];
     
     XCTAssertTrue([_gridModel boardCompleted],@"Check that the board is complete");
 }
