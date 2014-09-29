@@ -20,6 +20,7 @@
     HKSOGridView* _gridView;
     HKSOGridModel* _gridModel;
     HKSONumPadView* _numPadView;
+    HKSOWinViewController* _winView;
     UIButton* _restart;
     UIButton* _newGame;
     UIButton* _info;
@@ -39,12 +40,15 @@
     /*HKSOWinViewController* test = [[HKSOViewController alloc] init];
     [self.navigationController presentViewController:test animated:YES completion:nil];*/
     
+    // create the background
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wallpaper.jpg"]];
     
     // Initialize misc
     self.view.backgroundColor = [UIColor whiteColor];
     CGRect frame = self.view.frame;
     self.title = @"Sudoku";
+    _winView = [[HKSOWinViewController alloc] init];
+    [_winView setTarget:self andAction:@selector(newGameButtonPressed:)];
     
     // Sound set up
     NSURL *SoundURLGridPressed = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"button-11" ofType:@"wav"]];
@@ -173,6 +177,7 @@
 
 - (void) newGameButtonPressed:(id) sender
 {
+    NSLog(@"Setting up new game");
     [_gridModel startNewGame];
     [self initializeGrid];
 }
@@ -191,7 +196,6 @@
     
     // If the value is consistent, we then update the cell.
     if ([_gridModel canAddThisValue:valueOfHighlightedButton toRow:row andCol: col]) {
-        NSLog(@"Trying to add: %d, to row: %d, and col: %d", valueOfHighlightedButton, row, col);
         [_audioPlayerGridPressed prepareToPlay];
         [_audioPlayerGridPressed play];
         
@@ -199,9 +203,6 @@
         [_gridModel updateCurrentGrid:valueOfHighlightedButton atRow:row andCol:col];
         // Check if the player completes the game.
         if ([_gridModel boardCompleted]) {
-            
-            HKSOWinViewController* _winView = [[HKSOWinViewController alloc] init];
-            [_winView setTarget:self andAction:@selector(newGameButtonPressed:)];
             [self.navigationController modalPresentationStyle];
             [self.navigationController presentViewController:_winView animated:YES completion:nil];
             

@@ -7,10 +7,10 @@
 //
 
 #import "HKSOWinViewController.h"
+#import "HKSOViewController.h"
 
 @interface HKSOWinViewController ()
 {
-    
     UIWebView* _webView;
     UIButton* _playAgain;
     UILabel* _youWin;
@@ -34,27 +34,30 @@
     _webView.scalesPageToFit = YES;
     
     // create play again button
-    CGFloat playAgainButtonx = self.view.center.x;
-    CGFloat playAgainButtony = self.view.center.y + 300;
-    CGFloat playAgainButtonWidth = 100;
+    CGFloat playAgainButtonWidth = self.view.frame.size.width;
     CGFloat playAgainButtonHeight = 50;
+    CGFloat playAgainButtonx = self.view.center.x - playAgainButtonWidth/2;
+    CGFloat playAgainButtony = self.view.center.y + 300;
     CGRect playAgainButtonFrame = CGRectMake(playAgainButtonx, playAgainButtony, playAgainButtonWidth, playAgainButtonHeight);
     
     _playAgain = [[UIButton alloc] initWithFrame:playAgainButtonFrame];
-    _playAgain.alpha = 0.0;
+    _playAgain.alpha = 1.0;
     [_playAgain setTitle:@"Play Again?" forState:UIControlStateNormal];
     [_playAgain setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_playAgain.titleLabel setFont:[UIFont fontWithName:@"MarkerFelt-Thin" size:50.0f]];
     
     // you win label
-    CGFloat youWinButtonx = self.view.center.x;
-    CGFloat youWinButtony = self.view.center.y;
-    CGFloat youWinButtonWidth = 200;
+    CGFloat youWinButtonWidth = self.view.frame.size.width;
     CGFloat youWinButtonHeight = 100;
+    CGFloat youWinButtonx = self.view.center.x - youWinButtonWidth/2;
+    CGFloat youWinButtony = self.view.center.y;
     CGRect youWinButtonFrame = CGRectMake(youWinButtonx, youWinButtony, youWinButtonWidth, youWinButtonHeight);
     
     _youWin = [[UILabel alloc] initWithFrame:youWinButtonFrame];
     _youWin.text = @"YOU WIN!";
     _youWin.textColor = [UIColor blackColor];
+    [_youWin setTextAlignment:NSTextAlignmentCenter];
+    [_youWin setFont:[UIFont fontWithName:@"MarkerFelt-Thin" size:100.0f]];
     
     // add target
     [_playAgain addTarget:self action:@selector(playAgainPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -65,7 +68,7 @@
     [self.view addSubview:_youWin];
 }
 
-- (void) setTarget:(id)target andAction:(SEL)action
+- (void) setTarget:(id) target andAction:(SEL)action
 {
     _target = target;
     _action = action;
@@ -73,7 +76,10 @@
 
 - (void) playAgainPressed:(id) sender
 {
-    [_target performSelector:_action];
+    NSLog(@"Play Again pressed");
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    [_target performSelector:_action withObject:_playAgain];
     
 }
 - (void)didReceiveMemoryWarning {

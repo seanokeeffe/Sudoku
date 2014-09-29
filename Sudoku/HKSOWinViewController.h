@@ -10,6 +10,6 @@
 
 @interface HKSOWinViewController : UIViewController
 
-- (void) setTarget:(id)target andAction:(SEL)action;
+-(void) setTarget:(id) target andAction:(SEL)action;
 
 @end

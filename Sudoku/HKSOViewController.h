@@ -12,5 +12,6 @@
 
 @interface HKSOViewController : UIViewController
 - (void) gridCellSelected:(id)sender;
+- (void) newGameButtonPressed:(id) sender;
 
 @end
