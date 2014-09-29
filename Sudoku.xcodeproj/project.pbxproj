@@ -22,6 +22,8 @@
 
 /* Begin PBXBuildFile section */
 		743A130B19D8A21200FAAC23 /* HKSOWinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743A130A19D8A21200FAAC23 /* HKSOWinViewController.m */; };
+		7486EED819D8F5FC00641E41 /* SudokuWin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7486EED719D8F5FC00641E41 /* SudokuWin.gif */; };
+		7486EEDA19D8F9EE00641E41 /* GridGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7486EED919D8F9EE00641E41 /* GridGeneratorTests.m */; };
 		74FCCE8119D796ED00378D4F /* Sudoku_About.html in Resources */ = {isa = PBXBuildFile; fileRef = 74FCCE8019D796ED00378D4F /* Sudoku_About.html */; };
 		74FCCE8419D7973700378D4F /* HKSOAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FCCE8319D7973700378D4F /* HKSOAboutViewController.m */; };
 		A30DD86119D75E490076B0A2 /* HKSOGridGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */; };
@@ -49,7 +51,7 @@
 		D884C29219C25E5A00964320 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27119C25E5A00964320 /* Foundation.framework */; };
 		D884C29319C25E5A00964320 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27519C25E5A00964320 /* UIKit.framework */; };
 		D884C29B19C25E5A00964320 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D884C29919C25E5A00964320 /* InfoPlist.strings */; };
-		D884C29D19C25E5A00964320 /* SudokuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D884C29C19C25E5A00964320 /* SudokuTests.m */; };
+		D884C29D19C25E5A00964320 /* GridModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D884C29C19C25E5A00964320 /* GridModelTests.m */; };
 		D8CA563D19C3740D0050147B /* HKSOGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CA563C19C3740D0050147B /* HKSOGridView.m */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 /* Begin PBXFileReference section */
 		743A130919D8A21200FAAC23 /* HKSOWinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSOWinViewController.h; sourceTree = "<group>"; };
 		743A130A19D8A21200FAAC23 /* HKSOWinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSOWinViewController.m; sourceTree = "<group>"; };
+		7486EED719D8F5FC00641E41 /* SudokuWin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = SudokuWin.gif; sourceTree = "<group>"; };
+		7486EED919D8F9EE00641E41 /* GridGeneratorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridGeneratorTests.m; sourceTree = "<group>"; };
 		74FCCE8019D796ED00378D4F /* Sudoku_About.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Sudoku_About.html; sourceTree = SOURCE_ROOT; };
 		74FCCE8219D7973700378D4F /* HKSOAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSOAboutViewController.h; path = ../HKSOAboutViewController.h; sourceTree = "<group>"; };
 		74FCCE8319D7973700378D4F /* HKSOAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKSOAboutViewController.m; path = ../HKSOAboutViewController.m; sourceTree = "<group>"; };
@@ -102,7 +106,7 @@
 		D884C29019C25E5A00964320 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D884C29819C25E5A00964320 /* SudokuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SudokuTests-Info.plist"; sourceTree = "<group>"; };
 		D884C29A19C25E5A00964320 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D884C29C19C25E5A00964320 /* SudokuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SudokuTests.m; sourceTree = "<group>"; };
+		D884C29C19C25E5A00964320 /* GridModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridModelTests.m; sourceTree = "<group>"; };
 		D8CA563B19C3740D0050147B /* HKSOGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSOGridView.h; sourceTree = "<group>"; };
 		D8CA563C19C3740D0050147B /* HKSOGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSOGridView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,6 +198,7 @@
 		D884C27819C25E5A00964320 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7486EED719D8F5FC00641E41 /* SudokuWin.gif */,
 				A352ADFB19D8B1C900056C64 /* Wallpaper.jpg */,
 				A30DD86219D75EE30076B0A2 /* grid1.txt */,
 				A30DD86319D75EE30076B0A2 /* grid2.txt */,
@@ -213,7 +218,8 @@
 		D884C29619C25E5A00964320 /* SudokuTests */ = {
 			isa = PBXGroup;
 			children = (
-				D884C29C19C25E5A00964320 /* SudokuTests.m */,
+				D884C29C19C25E5A00964320 /* GridModelTests.m */,
+				7486EED919D8F9EE00641E41 /* GridGeneratorTests.m */,
 				D884C29719C25E5A00964320 /* Supporting Files */,
 			);
 			path = SudokuTests;
@@ -238,6 +244,7 @@
 				D884C26A19C25E5A00964320 /* Sources */,
 				D884C26B19C25E5A00964320 /* Frameworks */,
 				D884C26C19C25E5A00964320 /* Resources */,
+				7486EED619D8F2AF00641E41 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -308,6 +315,7 @@
 			files = (
 				D884C28A19C25E5A00964320 /* Images.xcassets in Resources */,
 				74FCCE8119D796ED00378D4F /* Sudoku_About.html in Resources */,
+				7486EED819D8F5FC00641E41 /* SudokuWin.gif in Resources */,
 				A352ADF819D8A4F500056C64 /* Button-Normal.png in Resources */,
 				A352ADFC19D8B1C900056C64 /* Wallpaper.jpg in Resources */,
 				D884C27C19C25E5A00964320 /* InfoPlist.strings in Resources */,
@@ -331,6 +339,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7486EED619D8F2AF00641E41 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = XCodeCoverage/exportenv.sh;
+		};
 		A302554C19CF860E000F7C38 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,7 +388,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D884C29D19C25E5A00964320 /* SudokuTests.m in Sources */,
+				D884C29D19C25E5A00964320 /* GridModelTests.m in Sources */,
+				7486EEDA19D8F9EE00641E41 /* GridGeneratorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +522,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sudoku/Sudoku-Prefix.pch";
 				INFOPLIST_FILE = "Sudoku/Sudoku-Info.plist";

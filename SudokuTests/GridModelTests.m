@@ -1,6 +1,6 @@
 //
-//  SudokuTests.m
-//  SudokuTests
+//  GridModelTests.m
+//  GridModelTests
 //
 //  Created by HMC on 9/11/14.
 //  Copyright (c) 2014 Yaxi Gao Sean Okeeffe. All rights reserved.
@@ -9,13 +9,13 @@
 #import <XCTest/XCTest.h>
 #import "HKSOGridModel.h"
 
-@interface SudokuTests : XCTestCase {
+@interface GridModelTests : XCTestCase {
     HKSOGridModel *_gridModel;
 }
 
 @end
 
-@implementation SudokuTests
+@implementation GridModelTests
 
 - (void)setUp
 {
@@ -175,6 +175,8 @@
     XCTAssertTrue([_gridModel getValueAtRow:6 andColumn:6]==0,@"Value did not change");
     
 }
+
+
 
 
 @end

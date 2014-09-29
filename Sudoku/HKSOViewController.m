@@ -39,6 +39,7 @@
     /*HKSOWinViewController* test = [[HKSOViewController alloc] init];
     [self.navigationController presentViewController:test animated:YES completion:nil];*/
     
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wallpaper.jpg"]];
     
     // Initialize misc
     self.view.backgroundColor = [UIColor whiteColor];
@@ -120,8 +121,9 @@
     [_info setBackgroundImage:[UIImage imageNamed:@"Button-Highlighted.png"]
                         forState:UIControlStateHighlighted];
     
-    // Add everythign to screen
+    // Add everything to screen
     [self initializeGrid];
+    [self.view addSubview:backgroundView];
     [self.view addSubview:_gridView];
     [self.view addSubview:_numPadView];
     [self.view addSubview:_newGame];
@@ -197,15 +199,16 @@
         [_gridModel updateCurrentGrid:valueOfHighlightedButton atRow:row andCol:col];
         // Check if the player completes the game.
         if ([_gridModel boardCompleted]) {
-            /*
+            
             HKSOWinViewController* _winView = [[HKSOWinViewController alloc] init];
             [_winView setTarget:self andAction:@selector(newGameButtonPressed:)];
             [self.navigationController modalPresentationStyle];
             [self.navigationController presentViewController:_winView animated:YES completion:nil];
-            */
             
+            /*
             UIAlertView* winAlert = [[UIAlertView alloc] initWithTitle:@"YOU WON!!" message:@"Congratulations" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
             [winAlert show];
+             */
         }
     } else {
         [_audioPlayerWrongGridPressed prepareToPlay];

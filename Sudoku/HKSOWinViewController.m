@@ -43,7 +43,7 @@
     _playAgain = [[UIButton alloc] initWithFrame:playAgainButtonFrame];
     _playAgain.alpha = 0.0;
     [_playAgain setTitle:@"Play Again?" forState:UIControlStateNormal];
-    [_playAgain setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_playAgain setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     // you win label
     CGFloat youWinButtonx = self.view.center.x;
@@ -54,7 +54,7 @@
     
     _youWin = [[UILabel alloc] initWithFrame:youWinButtonFrame];
     _youWin.text = @"YOU WIN!";
-    _youWin.textColor = [UIColor whiteColor];
+    _youWin.textColor = [UIColor blackColor];
     
     // add target
     [_playAgain addTarget:self action:@selector(playAgainPressed:) forControlEvents:UIControlEventTouchUpInside];
