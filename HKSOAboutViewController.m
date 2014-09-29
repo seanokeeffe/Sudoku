@@ -9,7 +9,6 @@
 #import "HKSOAboutViewController.h"
 
 @interface HKSOAboutViewController () {
-    //UIWebView* _webView;
     UITextView* _aboutContent;
     UILabel *_title;
     UILabel *_copyright;
@@ -26,24 +25,6 @@
     
     self.title = @"About";
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wallpaper.jpg"]];
-    /*CGFloat x = 0;
-    CGFloat y = 0;
-    CGFloat width = CGRectGetWidth(self.view.frame);
-    CGFloat height = CGRectGetHeight(self.view.frame);
-    
-    CGRect webFrame = CGRectMake(x, y, width, height);
-    
-    _webView = [[UIWebView alloc] initWithFrame:webFrame];
-    
-    NSString* htmlFile = [[NSBundle mainBundle] pathForResource:@"Sudoku_About" ofType:@"html"];
-    NSData* htmlData = [NSData dataWithContentsOfFile:htmlFile];
-    
-    NSURL* baseURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
-    
-    [_webView loadData:htmlData MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:baseURL];
-    
-    [self.view addSubview:_webView];
-    */
     
     CGFloat aboutContentWidth = self.view.frame.size.width - 100;
     CGFloat aboutContentHeight = self.view.frame.size.height - 550;
