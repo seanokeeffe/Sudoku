@@ -9,6 +9,7 @@
 #import "HKSONumPadView.h"
 
 @interface HKSONumPadView () {
+    
     NSMutableArray* cells;
     int highlightedButton;
 }
@@ -59,10 +60,13 @@
 - (void) cellSelected:(id)sender
 {
     if (highlightedButton >= 0) {
+        
         // If there is an already highlighted cell, change its background color back to white.
         [[cells objectAtIndex:highlightedButton] setBackgroundColor:[UIColor colorWithRed:0.9 green:0.8 blue:1.0 alpha:0.9]];
     }
+    
     ((UIButton*) sender).backgroundColor = [UIColor colorWithRed:0.5 green:0.7 blue:0.5 alpha:1.0];
+   
     // update the current highlighted cell
     highlightedButton = (int)((UIButton*)sender).tag;
     
@@ -72,14 +76,5 @@
 {
     return highlightedButton;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

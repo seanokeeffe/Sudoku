@@ -10,6 +10,7 @@
 #import "HKSOGridGenerator.h"
 
 @interface HKSOGridModel() {
+    
     HKSOGridGenerator* _gridGenerator;
     NSString* _gridValues;
     int currentGrid [9][9];
@@ -30,6 +31,7 @@
     return self;
 }
 
+// this method is for testing purpose only
 - (void) setCurrentGrid:(NSString*) values
 {
     _gridValues = values;

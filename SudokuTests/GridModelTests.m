@@ -2,7 +2,7 @@
 //  GridModelTests.m
 //  GridModelTests
 //
-//  Created by HMC on 9/11/14.
+//  Created by Sean on 9/11/14.
 //  Copyright (c) 2014 Yaxi Gao Sean Okeeffe. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 
 @end
 
+
 @implementation GridModelTests
 
 - (void)setUp
@@ -23,6 +24,8 @@
     // Put setup code here. This method is called before the invocation of each test method in the class.
     _gridModel = nil;
     _gridModel = [[HKSOGridModel alloc] init];
+    
+    // To avoid randomness, we provide a deterministic gridvalue for testing purpose.
     [_gridModel setCurrentGrid:@"8..6...38..2581.4..9.......546...8932.9..46......65..2..54.6.17...3....494..7.2.."];
     
 }
@@ -175,8 +178,6 @@
     XCTAssertTrue([_gridModel getValueAtRow:6 andColumn:6]==0,@"Value did not change");
     
 }
-
-
 
 
 @end

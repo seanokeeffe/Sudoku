@@ -10,6 +10,7 @@
 #import "HKSOViewController.h"
 
 @interface HKSOAppDelegate() {
+    
     UINavigationController* navigationController;
     
 }

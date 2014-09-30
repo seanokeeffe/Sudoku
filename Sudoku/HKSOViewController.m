@@ -17,6 +17,7 @@
 
 
 @interface HKSOViewController () {
+    
     HKSOGridView* _gridView;
     HKSOGridModel* _gridModel;
     HKSONumPadView* _numPadView;
@@ -31,14 +32,14 @@
 
 @end
 
+
+
 @implementation HKSOViewController
 
 - (void)viewDidLoad
 {
   
     [super viewDidLoad];
-    /*HKSOWinViewController* test = [[HKSOViewController alloc] init];
-    [self.navigationController presentViewController:test animated:YES completion:nil];*/
     
     // create the background
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wallpaper.jpg"]];
@@ -154,11 +155,13 @@
 {
     for (int i = 0; i < 9; ++i) {
         for (int j = 0 ; j < 9; ++j)  {
+            
             int value = [_gridModel getValueAtRow:i andColumn:j];
             [_gridView setValueAtRow:i andColumn:j toValue: value];
             if (value != 0) {
                 [_gridView setToInitialAtRow:i andColumn:j];
             }
+            
         }
     }
 }
@@ -177,7 +180,6 @@
 
 - (void) newGameButtonPressed:(id) sender
 {
-    NSLog(@"Setting up new game");
     [_gridModel startNewGame];
     [self initializeGrid];
 }
@@ -201,15 +203,12 @@
         
         [_gridView setValueAtRow:row andColumn:col toValue: valueOfHighlightedButton];
         [_gridModel updateCurrentGrid:valueOfHighlightedButton atRow:row andCol:col];
+        
         // Check if the player completes the game.
         if ([_gridModel boardCompleted]) {
             [self.navigationController modalPresentationStyle];
             [self.navigationController presentViewController:_winView animated:YES completion:nil];
             
-            /*
-            UIAlertView* winAlert = [[UIAlertView alloc] initWithTitle:@"YOU WON!!" message:@"Congratulations" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-            [winAlert show];
-             */
         }
     } else {
         [_audioPlayerWrongGridPressed prepareToPlay];

@@ -2,17 +2,17 @@
 //  HKSOGridView.m
 //  Sudoku
 //
-//  Created by HMC on 9/12/14.
+//  Created by Sean on 9/12/14.
 //  Copyright (c) 2014 Yaxi Gao Sean Okeeffe. All rights reserved.
 //
 
 #import "HKSOGridView.h"
 
 @interface HKSOGridView (){
-    NSMutableArray* gridCells;
     
-    id target;
-    SEL action;
+    NSMutableArray* _gridCells;
+    id _target;
+    SEL _action;
     
 }
 @end
@@ -26,8 +26,7 @@
     if (self) {
         
         // Initialization code
-        
-        gridCells = [[NSMutableArray alloc] init];
+        _gridCells = [[NSMutableArray alloc] init];
         
         CGFloat x = frame.size.height / 24.0;
         CGFloat y = frame.size.height / 24.0;
@@ -36,17 +35,17 @@
         CGFloat thinBorder = frame.size.height / 72.0;
         
         int buttonTag = 0;
+        
         for (int i = 0; i < 9; i++){
             for (int j = 0; j < 9; j++){
+                
                 // create and set up a button
                 CGRect buttonFrame = CGRectMake (x,y,buttonSize,buttonSize);
                 UIButton* button = [[UIButton alloc] initWithFrame:buttonFrame];
                 
                 [self setBackgroundColorAtRow:i AndCol:j ofButton:button];
-                
                 button.tag = buttonTag++;
-                
-                [gridCells addObject:button];
+                [_gridCells addObject:button];
                 [self addSubview:button];
                 
                 // adjusting for the border widths between columns
@@ -58,9 +57,9 @@
                 }
                 else {
                     x = x + buttonSize + thinBorder;
-
                 }
             }
+            
             // adjusting for the border widths between rows
             if ((i + 1) % 3 == 0 ){
                 y = y + buttonSize + thickBorder;
@@ -76,7 +75,7 @@
 // set cell to user-entered values
 - (void) setValueAtRow:(int)row andColumn:(int)col toValue:(int)value
 {
-    UIButton* button = [gridCells objectAtIndex:9 * row + col];
+    UIButton* button = [_gridCells objectAtIndex:9 * row + col];
     
     [button removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     [button addTarget:self action:@selector(cellSelected:) forControlEvents:UIControlEventTouchUpInside];
@@ -99,7 +98,7 @@
 // also removes the target so that the user cannot change its value
 -(void)setToInitialAtRow:(int)row andColumn:(int)col
 {
-    UIButton* button = [gridCells objectAtIndex:9 * row + col];
+    UIButton* button = [_gridCells objectAtIndex:9 * row + col];
     [button removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:20];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
@@ -111,13 +110,13 @@
 
 - (void) addTarget:(id)theTarget action:(SEL)theAction
 {
-    target = theTarget;
-    action = theAction;
+    _target = theTarget;
+    _action = theAction;
 }
 
 - (void) cellSelected:(id)sender
 {
-    [target performSelector:action withObject:((UIButton*) sender)];
+    [_target performSelector:_action withObject:((UIButton*) sender)];
 }
 
 // set different background colors to differentiate blocks
@@ -146,13 +145,5 @@
     
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

@@ -3,7 +3,7 @@
 //  Sudoku
 //
 //  Created by Yaxi Gao on 9/27/14.
-//  Copyright (c) 2014 Hana Kim Sean Okeeffe. All rights reserved.
+//  Copyright (c) 2014 Yaxi Gao Sean Okeeffe. All rights reserved.
 //
 
 #import "HKSOGridGenerator.h"
@@ -15,11 +15,14 @@
 @end
 
 @implementation HKSOGridGenerator
+
 - (id) init
 {
     self = [super init];
     NSString* path;
     if (self) {
+        
+        // randomly choose between the two given files
         int index = arc4random_uniform(100);
         if ((index % 2) == 0) {
             path = [[NSBundle mainBundle] pathForResource:@"grid1" ofType:@"txt"];
