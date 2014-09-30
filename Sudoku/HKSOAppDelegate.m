@@ -7,12 +7,28 @@
 //
 
 #import "HKSOAppDelegate.h"
+#import "HKSOViewController.h"
+
+@interface HKSOAppDelegate() {
+    
+    UINavigationController* navigationController;
+    
+}
+
+@end
 
 @implementation HKSOAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    UIViewController* mainViewController = [[HKSOViewController alloc] init];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    _window.rootViewController = navigationController;
+    [_window makeKeyAndVisible];
+    
     return YES;
 }
 							

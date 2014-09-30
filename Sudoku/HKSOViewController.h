@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "HKSOGridView.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface HKSOViewController : UIViewController
 
 - (void) gridCellSelected:(id)sender;
+- (void) newGameButtonPressed:(id) sender;
 
 @end

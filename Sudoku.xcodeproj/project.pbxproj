@@ -21,8 +21,23 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		743A130B19D8A21200FAAC23 /* HKSOWinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743A130A19D8A21200FAAC23 /* HKSOWinViewController.m */; };
+		7486EED819D8F5FC00641E41 /* SudokuWin.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7486EED719D8F5FC00641E41 /* SudokuWin.gif */; };
+		7486EEDA19D8F9EE00641E41 /* GridGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7486EED919D8F9EE00641E41 /* GridGeneratorTests.m */; };
+		74FCCE8119D796ED00378D4F /* Sudoku_About.html in Resources */ = {isa = PBXBuildFile; fileRef = 74FCCE8019D796ED00378D4F /* Sudoku_About.html */; };
+		74FCCE8419D7973700378D4F /* HKSOAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FCCE8319D7973700378D4F /* HKSOAboutViewController.m */; };
+		A30DD86119D75E490076B0A2 /* HKSOGridGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */; };
+		A30DD86419D75EE30076B0A2 /* grid1.txt in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86219D75EE30076B0A2 /* grid1.txt */; };
+		A30DD86519D75EE30076B0A2 /* grid2.txt in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86319D75EE30076B0A2 /* grid2.txt */; };
+		A30DD86719D771BA0076B0A2 /* button-11.wav in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86619D771BA0076B0A2 /* button-11.wav */; };
+		A30DD86919D772140076B0A2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30DD86819D772140076B0A2 /* AudioToolbox.framework */; };
+		A30DD86B19D777620076B0A2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A30DD86A19D777620076B0A2 /* AVFoundation.framework */; };
+		A30DD86D19D7784E0076B0A2 /* button-18.wav in Resources */ = {isa = PBXBuildFile; fileRef = A30DD86C19D7784E0076B0A2 /* button-18.wav */; };
 		A3312F4919CD19FB00D7D865 /* HKSOGridModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A3312F4819CD19FB00D7D865 /* HKSOGridModel.m */; };
 		A3312F4C19CD1A1100D7D865 /* HKSONumPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3312F4B19CD1A1100D7D865 /* HKSONumPadView.m */; };
+		A352ADF819D8A4F500056C64 /* Button-Normal.png in Resources */ = {isa = PBXBuildFile; fileRef = A352ADF719D8A4F500056C64 /* Button-Normal.png */; };
+		A352ADFA19D8A63900056C64 /* Button-Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = A352ADF919D8A63900056C64 /* Button-Highlighted.png */; };
+		A352ADFC19D8B1C900056C64 /* Wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A352ADFB19D8B1C900056C64 /* Wallpaper.jpg */; };
 		D884C27219C25E5A00964320 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27119C25E5A00964320 /* Foundation.framework */; };
 		D884C27419C25E5A00964320 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27319C25E5A00964320 /* CoreGraphics.framework */; };
 		D884C27619C25E5A00964320 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27519C25E5A00964320 /* UIKit.framework */; };
@@ -36,7 +51,7 @@
 		D884C29219C25E5A00964320 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27119C25E5A00964320 /* Foundation.framework */; };
 		D884C29319C25E5A00964320 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D884C27519C25E5A00964320 /* UIKit.framework */; };
 		D884C29B19C25E5A00964320 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D884C29919C25E5A00964320 /* InfoPlist.strings */; };
-		D884C29D19C25E5A00964320 /* SudokuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D884C29C19C25E5A00964320 /* SudokuTests.m */; };
+		D884C29D19C25E5A00964320 /* GridModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D884C29C19C25E5A00964320 /* GridModelTests.m */; };
 		D8CA563D19C3740D0050147B /* HKSOGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CA563C19C3740D0050147B /* HKSOGridView.m */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +66,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		743A130919D8A21200FAAC23 /* HKSOWinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSOWinViewController.h; sourceTree = "<group>"; };
+		743A130A19D8A21200FAAC23 /* HKSOWinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSOWinViewController.m; sourceTree = "<group>"; };
+		7486EED719D8F5FC00641E41 /* SudokuWin.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = SudokuWin.gif; sourceTree = "<group>"; };
+		7486EED919D8F9EE00641E41 /* GridGeneratorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridGeneratorTests.m; sourceTree = "<group>"; };
+		74FCCE8019D796ED00378D4F /* Sudoku_About.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Sudoku_About.html; sourceTree = SOURCE_ROOT; };
+		74FCCE8219D7973700378D4F /* HKSOAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSOAboutViewController.h; path = ../HKSOAboutViewController.h; sourceTree = "<group>"; };
+		74FCCE8319D7973700378D4F /* HKSOAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKSOAboutViewController.m; path = ../HKSOAboutViewController.m; sourceTree = "<group>"; };
+		A30DD85F19D75E490076B0A2 /* HKSOGridGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSOGridGenerator.h; sourceTree = "<group>"; };
+		A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSOGridGenerator.m; sourceTree = "<group>"; };
+		A30DD86219D75EE30076B0A2 /* grid1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid1.txt; sourceTree = "<group>"; };
+		A30DD86319D75EE30076B0A2 /* grid2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grid2.txt; sourceTree = "<group>"; };
+		A30DD86619D771BA0076B0A2 /* button-11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-11.wav"; sourceTree = "<group>"; };
+		A30DD86819D772140076B0A2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A30DD86A19D777620076B0A2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A30DD86C19D7784E0076B0A2 /* button-18.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-18.wav"; sourceTree = "<group>"; };
 		A3312F4719CD19FB00D7D865 /* HKSOGridModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSOGridModel.h; path = ../HKSOGridModel.h; sourceTree = "<group>"; };
 		A3312F4819CD19FB00D7D865 /* HKSOGridModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKSOGridModel.m; path = ../HKSOGridModel.m; sourceTree = "<group>"; };
 		A3312F4A19CD1A1100D7D865 /* HKSONumPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSONumPadView.h; path = ../HKSONumPadView.h; sourceTree = "<group>"; };
 		A3312F4B19CD1A1100D7D865 /* HKSONumPadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKSONumPadView.m; path = ../HKSONumPadView.m; sourceTree = "<group>"; };
+		A352ADF719D8A4F500056C64 /* Button-Normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Normal.png"; sourceTree = "<group>"; };
+		A352ADF919D8A63900056C64 /* Button-Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button-Highlighted.png"; sourceTree = "<group>"; };
+		A352ADFB19D8B1C900056C64 /* Wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Wallpaper.jpg; sourceTree = "<group>"; };
 		D884C26E19C25E5A00964320 /* Sudoku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sudoku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D884C27119C25E5A00964320 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D884C27319C25E5A00964320 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -73,7 +106,7 @@
 		D884C29019C25E5A00964320 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		D884C29819C25E5A00964320 /* SudokuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SudokuTests-Info.plist"; sourceTree = "<group>"; };
 		D884C29A19C25E5A00964320 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D884C29C19C25E5A00964320 /* SudokuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SudokuTests.m; sourceTree = "<group>"; };
+		D884C29C19C25E5A00964320 /* GridModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GridModelTests.m; sourceTree = "<group>"; };
 		D8CA563B19C3740D0050147B /* HKSOGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSOGridView.h; sourceTree = "<group>"; };
 		D8CA563C19C3740D0050147B /* HKSOGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSOGridView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +116,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A30DD86B19D777620076B0A2 /* AVFoundation.framework in Frameworks */,
+				A30DD86919D772140076B0A2 /* AudioToolbox.framework in Frameworks */,
 				D884C27419C25E5A00964320 /* CoreGraphics.framework in Frameworks */,
 				D884C27619C25E5A00964320 /* UIKit.framework in Frameworks */,
 				D884C27219C25E5A00964320 /* Foundation.framework in Frameworks */,
@@ -124,6 +159,8 @@
 		D884C27019C25E5A00964320 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A30DD86A19D777620076B0A2 /* AVFoundation.framework */,
+				A30DD86819D772140076B0A2 /* AudioToolbox.framework */,
 				D884C27119C25E5A00964320 /* Foundation.framework */,
 				D884C27319C25E5A00964320 /* CoreGraphics.framework */,
 				D884C27519C25E5A00964320 /* UIKit.framework */,
@@ -135,6 +172,10 @@
 		D884C27719C25E5A00964320 /* Sudoku */ = {
 			isa = PBXGroup;
 			children = (
+				74FCCE8219D7973700378D4F /* HKSOAboutViewController.h */,
+				74FCCE8319D7973700378D4F /* HKSOAboutViewController.m */,
+				743A130919D8A21200FAAC23 /* HKSOWinViewController.h */,
+				743A130A19D8A21200FAAC23 /* HKSOWinViewController.m */,
 				A3312F4719CD19FB00D7D865 /* HKSOGridModel.h */,
 				A3312F4819CD19FB00D7D865 /* HKSOGridModel.m */,
 				A3312F4A19CD1A1100D7D865 /* HKSONumPadView.h */,
@@ -144,6 +185,8 @@
 				D884C28319C25E5A00964320 /* Main.storyboard */,
 				D884C28619C25E5A00964320 /* HKSOViewController.h */,
 				D884C28719C25E5A00964320 /* HKSOViewController.m */,
+				A30DD85F19D75E490076B0A2 /* HKSOGridGenerator.h */,
+				A30DD86019D75E490076B0A2 /* HKSOGridGenerator.m */,
 				D8CA563B19C3740D0050147B /* HKSOGridView.h */,
 				D8CA563C19C3740D0050147B /* HKSOGridView.m */,
 				D884C28919C25E5A00964320 /* Images.xcassets */,
@@ -155,6 +198,15 @@
 		D884C27819C25E5A00964320 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7486EED719D8F5FC00641E41 /* SudokuWin.gif */,
+				A352ADFB19D8B1C900056C64 /* Wallpaper.jpg */,
+				A30DD86219D75EE30076B0A2 /* grid1.txt */,
+				A30DD86319D75EE30076B0A2 /* grid2.txt */,
+				74FCCE8019D796ED00378D4F /* Sudoku_About.html */,
+				A352ADF919D8A63900056C64 /* Button-Highlighted.png */,
+				A352ADF719D8A4F500056C64 /* Button-Normal.png */,
+				A30DD86C19D7784E0076B0A2 /* button-18.wav */,
+				A30DD86619D771BA0076B0A2 /* button-11.wav */,
 				D884C27919C25E5A00964320 /* Sudoku-Info.plist */,
 				D884C27A19C25E5A00964320 /* InfoPlist.strings */,
 				D884C27D19C25E5A00964320 /* main.m */,
@@ -166,7 +218,8 @@
 		D884C29619C25E5A00964320 /* SudokuTests */ = {
 			isa = PBXGroup;
 			children = (
-				D884C29C19C25E5A00964320 /* SudokuTests.m */,
+				D884C29C19C25E5A00964320 /* GridModelTests.m */,
+				7486EED919D8F9EE00641E41 /* GridGeneratorTests.m */,
 				D884C29719C25E5A00964320 /* Supporting Files */,
 			);
 			path = SudokuTests;
@@ -191,6 +244,7 @@
 				D884C26A19C25E5A00964320 /* Sources */,
 				D884C26B19C25E5A00964320 /* Frameworks */,
 				D884C26C19C25E5A00964320 /* Resources */,
+				7486EED619D8F2AF00641E41 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -260,8 +314,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D884C28A19C25E5A00964320 /* Images.xcassets in Resources */,
+				74FCCE8119D796ED00378D4F /* Sudoku_About.html in Resources */,
+				7486EED819D8F5FC00641E41 /* SudokuWin.gif in Resources */,
+				A352ADF819D8A4F500056C64 /* Button-Normal.png in Resources */,
+				A352ADFC19D8B1C900056C64 /* Wallpaper.jpg in Resources */,
 				D884C27C19C25E5A00964320 /* InfoPlist.strings in Resources */,
+				A352ADFA19D8A63900056C64 /* Button-Highlighted.png in Resources */,
+				A30DD86419D75EE30076B0A2 /* grid1.txt in Resources */,
 				D884C28519C25E5A00964320 /* Main.storyboard in Resources */,
+				A30DD86719D771BA0076B0A2 /* button-11.wav in Resources */,
+				A30DD86519D75EE30076B0A2 /* grid2.txt in Resources */,
+				A30DD86D19D7784E0076B0A2 /* button-18.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +339,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		7486EED619D8F2AF00641E41 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = XCodeCoverage/exportenv.sh;
+		};
 		A302554C19CF860E000F7C38 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -298,6 +374,9 @@
 			files = (
 				A3312F4919CD19FB00D7D865 /* HKSOGridModel.m in Sources */,
 				D884C27E19C25E5A00964320 /* main.m in Sources */,
+				A30DD86119D75E490076B0A2 /* HKSOGridGenerator.m in Sources */,
+				74FCCE8419D7973700378D4F /* HKSOAboutViewController.m in Sources */,
+				743A130B19D8A21200FAAC23 /* HKSOWinViewController.m in Sources */,
 				D884C28219C25E5A00964320 /* HKSOAppDelegate.m in Sources */,
 				D884C28819C25E5A00964320 /* HKSOViewController.m in Sources */,
 				A3312F4C19CD1A1100D7D865 /* HKSONumPadView.m in Sources */,
@@ -309,7 +388,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D884C29D19C25E5A00964320 /* SudokuTests.m in Sources */,
+				D884C29D19C25E5A00964320 /* GridModelTests.m in Sources */,
+				7486EEDA19D8F9EE00641E41 /* GridGeneratorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +522,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sudoku/Sudoku-Prefix.pch";
 				INFOPLIST_FILE = "Sudoku/Sudoku-Info.plist";
@@ -513,6 +595,7 @@
 				A302554A19CF85FA000F7C38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D884C26919C25E5A00964320 /* Build configuration list for PBXProject "Sudoku" */ = {
 			isa = XCConfigurationList;
